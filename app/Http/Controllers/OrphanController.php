@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class OrphanController extends Controller
 {
-    public function list(){
-        return view('backend.pages.orphans');
+    public function center(){
+        return view('backend.pages.orphan.center');
+    }
+    public function CreateForm(){
+        return view('backend.pages.orphan.createForm');
     }
 }

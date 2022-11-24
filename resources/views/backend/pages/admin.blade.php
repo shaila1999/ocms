@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1> hiiiiiii....</h1>
+<h1>my name</h1>
 
 
 

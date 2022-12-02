@@ -3,7 +3,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                         
-                            <a class="nav-link" href="{{url('/')}}">
+                            <a class="nav-link" href="{{route('dashboard')}}">
                                  <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                  Dashboard
                             </a>
@@ -39,7 +39,7 @@
                                  Donation
                             </a>
                             
-                            <a class="nav-link collapsed" href="{{url('/donors')}}" >
+                            <a class="nav-link collapsed" href="{{route('donors')}}" >
                                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                  Donors
                             </a>

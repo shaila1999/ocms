@@ -19,7 +19,7 @@ if(Auth::attempt($credentials))
 {
     return redirect()->route('dashboard');
 }
-dd('login failed');
+//dd('login failed');
 
     }
     public function logout()

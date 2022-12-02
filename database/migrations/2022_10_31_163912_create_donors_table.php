@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('donors', function (Blueprint $table) {
             $table->id();
             $table->string('name',5);
-            $table->text('address')->nullable();
+            $table->text('address');
             $table->string('phone_number',20);
-            $table->string('occupation')->nullable();
+            $table->string('email',30);
+            $table->text('description');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

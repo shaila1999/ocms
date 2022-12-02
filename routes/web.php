@@ -7,6 +7,7 @@ use App\Http\Controllers\OrphanController;
 use App\Http\Controllers\MemberController;
 use App\Http\controllers\StaffController;
 use App\Http\controllers\ParentController;
+use App\Http\Controllers\DonorController;
 use App\Http\controllers\UserController;
 use App\Http\Controllers\WebHomeController;
 
@@ -27,7 +28,8 @@ use App\Http\Controllers\WebHomeController;
 //Route for website
 Route::get('/',[WebHomeController::class,'webHome'])->name('home');
 Route::post('/register',[WebHomeController::class, 'registration'])->name('registration');
-Route::post('/login',[WebHomeController::class,'login'])->name('login');
+Route::post('/user/login',[WebHomeController::class,'login'])->name('user.login');
+Route::get('/user/logout', [WebHomeController::class, 'logout'])->name('user.logout');
 
  
 
@@ -58,16 +60,28 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
    Route::get('/staffs',[StaffController::class,'stafflist'])->name('staff.list');
    Route::get('/staff/create',[StaffController::class,'createlist'])->name('staff.create');
    Route::post('/staff/care',[StaffController::class,'care'])->name('staff.care');
+
+   Route::get('/staff/delete/{staff_id}',[StaffController::class,'deleteStaff'])->name('admin.staff.delete');
+   Route::get('/staff/view/{staff_id}',[StaffController::class,'viewStaff'])->name('admin.staff.view');
+   Route::get('/staff/edit/{staff_id}',[StaffController::class,'edit'])->name('staff.edit');
+   Route::put('/staff/update/{staff_id}',[StaffController::class,'update'])->name('staff.update');
   
    Route::get('/parents',[ParentController::class,'method'])->name('parents');
    Route::get('/parent/create',[ParentController::class,'name'])->name('parent.create');
    Route::post('/parent/class',[ParentController::class,'class'])->name('parent.class');
 
-   Route::get('/staff/delete/{staff_id}',[StaffController::class,'deleteStaff'])->name('admin.staff.delete');
-   Route::get('/staff/view/{staff_id}',[StaffController::class,'viewStaff'])->name('admin.staff.view');
- 
-   Route::get('/staff/edit/{staff_id}',[StaffController::class,'edit'])->name('staff.edit');
-   Route::put('/staff/update/{staff_id}',[StaffController::class,'update'])->name('staff.update');
+   
+   Route::get('/donors',[DonorController::class,'information'])->name('donors');
+   Route::get('/donor/create',[DonorController::class,'donorcreate'])->name('donor.create');
+   Route::post('/donor/info',[DonorController::class,'info'])->name('donor.info');
+
+   Route::get('/donor/delete/{donor_id}',[DonorController::class,'deleteDonor'])->name('admin.donor.delete');
+   Route::get('/donor/view/{donor_id}',[DonorController::class,'viewDonor'])->name('admin.donor.view');
+   Route::get('/donor/edit/{donor_id}',[DonorController::class,'edit'])->name('donor.edit');
+   Route::put('/donor/update/{donor_id}',[DonorController::class,'update'])->name('donor.update');
+  
+   
+
  
 
 }); 

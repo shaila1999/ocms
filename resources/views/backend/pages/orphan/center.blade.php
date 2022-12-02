@@ -5,7 +5,7 @@
 
 <h1>Orphan List</h1>
 <a href="{{route('orphan.create')}}" class="btn btn-success">
-  Create New Orphan
+  Add New Orphan
 </a>
 
 <table class="table">

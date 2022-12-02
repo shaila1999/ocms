@@ -41,8 +41,9 @@ class MemberController extends Controller
             'name'=>$request->name,
             'address'=>$request->address,
             'phone_number'=>$request->phone,
-            //'occupation'=>$request->occupation,
             'donation'=>$request->donation,
+            'email'=>$request->email,
+            'status'=>$request->status,
            'image'=>$fileName
 
         ]);

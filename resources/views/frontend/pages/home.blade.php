@@ -296,18 +296,18 @@
       </div>
       <div class="modal-body">
        
-      <form action="{{route('login')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('user.login')}}" method="post" enctype="multipart/form-data">
       @csrf
         
         <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input required name="donor_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <input required name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
 
     
         <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input required name="donor_password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input required name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -350,11 +350,7 @@
         <label for="exampleInputEmail1">Email address</label>
         <input name="donor_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
-
-        <div class="form-group">
-        <label for="number">Phone Number</label>
-        <input name="donor_phone" type="text" class="form-control" id="number"  placeholder="Enter Number">
-        </div>
+        
 
         <div class="form-group">
         <label for="exampleInputPassword1">Password</label>

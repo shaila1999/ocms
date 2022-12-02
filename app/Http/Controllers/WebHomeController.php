@@ -16,12 +16,11 @@ class WebHomeController extends Controller
         User::create([
             'name'=>$request->donor_name,
             'email'=>$request->donor_email,
-            'mobile'=>$request->donor_phone,
             'password'=> bcrypt($request->donor_password),
-             'role'=>'donor'
+            'role'=>'donor'
          ]);
- 
-         return redirect()->back()->with('message','Registration Success.');
+         notify()->success('Registration success');
+         return redirect()->back();
     }
 
     public function login(Request $request){
@@ -31,6 +30,25 @@ class WebHomeController extends Controller
             'password'=>'required',
         ]);
 
+        $credentials=$request->except('_token');
+        if(auth()->attempt($credentials))
+        {
+       notify()->success('Login success');
+            return redirect()->back();
+        }
+        notify()->error('invalid password');
+        return redirect()->back();
+
 
     }
+    public function logout(){
+        auth()->logout();
+        
+        notify()->success('Logout success');
+            return redirect()->back();
+
+         
+
+    }
+
 }

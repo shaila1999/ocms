@@ -28,12 +28,15 @@
 			<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 			<link rel="stylesheet" href="{{url('/frontend/css/bootstrap.css')}}">
 			<link rel="stylesheet" href="{{url('/frontend/css/main.css')}}">
+			@notifyCss
+			<style type="text/css"> .notify{ z-index: 1000000; margin-top: 5%; } </style>
 		</head>
 		<body>
+		@include('notify::components.notify')	
 
 			
   @include('frontend.partials.header')
-
+ 
 
 
 
@@ -55,5 +58,6 @@
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			<script src="{{url('/frontend/js/jquery.magnific-popup.min.js')}}"></script>
 			<script src="{{url('/frontend/js/main.js')}}"></script>
+			@notifyJs
 		</body>
 	</html>

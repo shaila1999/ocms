@@ -3,7 +3,7 @@
 @section('content')
 
 
-<form action="{{route('member.access')}}" method="post" >      
+<form action="{{route('member.access')}}" method="post" enctype="multipart/form-data">      
 
 @if($errors->any())
     @foreach($errors->all() as $message)
@@ -16,41 +16,42 @@
 
         <div class="form-group">
             <label for="name">Enter Member Name</label>
-            <input required name="name" type="text" class="form-control" id="name" placeholder="Enter Member Name">
+            <input required name="name" type="text" class="form-control" id="name" placeholder="Enter member name">
         </div>
 
-        <div class="form-group">
-            <label for="name">Enter Member Id</label>
-            <input name="id" type="text" class="form-control" id="name" placeholder="Enter Id ">
-        </div>
-
-        
-
+       
         <div class="form-group">
             <label for="name">Enter Member Address</label>
-            <input name="address" type="text" class="form-control" id="name" placeholder="Enter Member Address">
+            <input name="address" type="text" class="form-control" id="name" placeholder="Enter member address">
         </div>
 
         
-
         <div class="form-group">
             <label for="">Enter Member Phone_Number</label>
-            <input required name="phone" type="number" class="form-control"  placeholder="Enter Member Phone ">
+            <input required name="phone" type="number" class="form-control"  placeholder="Enter member phone ">
 
          </div>
 
          <div class="form-group">
-            <label for="">Enter Member Occupation</label>
-            <input name="occupation" type="text" class="form-control"  placeholder="Enter Member occupation ">
+             <label for="">Enter Member Status</label>
+            <select name="status" id="" class="form-control">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+        </div>
 
-           
+
+         <div class="form-group">
+            <label for="">Enter Donation Amount</label>
+            <input name="donation" type="number" class="form-control"  placeholder="Enter donation amount ">
+
          </div>
 
          <div class="form-group">
-            <label for="">Enter Member Donation</label>
-            <input name="donation" type="number" class="form-control"  placeholder="Enter Member Donation ">
+            <label for="">Enter Member Email</label>
+            <input name="email" type="text" class="form-control"  placeholder="Enter member email ">
 
-         </div>
+        </div>
 
          <div class="form-group">
             <label for="image">Upload Image</label>

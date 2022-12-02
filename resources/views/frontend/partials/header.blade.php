@@ -12,8 +12,17 @@
 									<a href="#project">Projects</a>
 									<a href="#about">About</a>
 									<a href="#donate">Donate</a>
+									
+									
+									@auth
+									
+								    {{auth()->user()->name}}
+									
+							        <a href="{{route('user.logout')}}">Logout</a>
+									@else
 									<a href="#" data-toggle="modal" data-target="#login">Login</a>
-									<a href="#" data-toggle="modal" data-target="#registration">Registration</a>	
+									<a href="#" data-toggle="modal" data-target="#registration">Registration</a>
+									@endauth	
 								</nav>
 								<div class="menu-bar"><span class="lnr lnr-menu"></span></div>
 							</div>

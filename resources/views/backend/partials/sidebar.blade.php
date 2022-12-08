@@ -12,7 +12,11 @@
                                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div> 
                                   Admin
                             </a>
-                            
+
+                             <a class="nav-link collapsed" href="{{route('user.list')}}" >
+                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div> 
+                                  User list
+                            </a>
                             
                             <a class="nav-link collapsed" href="{{route('orphans')}}" >
                                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>

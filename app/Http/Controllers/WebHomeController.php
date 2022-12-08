@@ -15,23 +15,21 @@ class WebHomeController extends Controller
     }
 
     public function registration(Request $request){
-        if($request->status == 'inactive'){
-            notify()->error('You are not active');
-            return redirect()->back();
-        }
-        else{        
+        
+       
         User::create([
             'name'=>$request->donor_name,
             'email'=>$request->donor_email,
             'password'=> bcrypt($request->donor_password),
-            'role'=>'donor',
-            'status'=>$request->status
+            'role'=>$request->role,
+            'status'=>'inactive',
+            'address'=>$request->address
          ]);
          
 
          notify()->success('Registration success');
          return redirect()->back();
-        }
+        
     }
 
     public function login(Request $request){
@@ -44,11 +42,19 @@ class WebHomeController extends Controller
         $credentials=$request->except('_token');
         if(auth()->attempt($credentials))
         {
-       notify()->success('Login success');
+            if(auth()->user()->status!='active'){
+               
+                notify()->error('Account Inactive.Contact With Admin');
+                auth()->logout();     
+            }
+            else{
+                notify()->success('Login success');
+            }
+            
             return redirect()->back();
         }
-        notify()->error('invalid password');
-        return redirect()->back();
+             notify()->error('invalid password');
+            return redirect()->back();
 
 
     }
@@ -132,8 +138,25 @@ class WebHomeController extends Controller
 
       public function  profile (){
 
-        return redirect('frontend.pages.profile');
+        return view('frontend.pages.profile');
     }
+
+        public function updateProfile(Request $request)
+       {
+        //validation
+
+        $user=User::find(auth()->user()->id);
+        $user->update([
+           'name'=>$request->user_name,
+           'address'=>$request->user_address,
+           'role'=>$request->role,
+           
+        ]);
+
+        notify()->success('User profile updated.');
+        return redirect()->back();
+    }
+
 }
 
 

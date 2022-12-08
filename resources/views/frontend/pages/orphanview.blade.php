@@ -3,9 +3,10 @@
 
 
 @section('content')
-
-
-<div class="card" style="width: 18rem;">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-4">
+    <div class="card">
   <img src="{{url('/uploads/',$view->image)}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Orphan details</h5>
@@ -19,5 +20,10 @@
     <a href="{{route('adopt.now',$view->id)}}" class="btn btn-primary">Adopt Now</a>
   </div>
 </div>
+
+    </div>
+  </div>
+</div>
+
 
 @endsection

@@ -34,7 +34,7 @@ use App\Http\Controllers\AdoptionController;
 Route::get('/',[WebHomeController::class,'webHome'])->name('home');
 Route::post('/register',[WebHomeController::class, 'registration'])->name('registration');
 Route::post('/user/login',[WebHomeController::class,'login'])->name('user.login');
-Route::get('/user/logout', [WebHomeController::class, 'logout'])->name('user.logout');
+
 
 Route::get('/frontend/orphan',[WebHomeController::class,'orphanlist'])->name('orphan.list');
 Route::get('/frontend/view',[WebHomeController::class,'vieworphan'])->name('view.orphan');
@@ -43,13 +43,20 @@ Route::get('/frontend/orphan/view/{view_id}',[WebHomeController::class,'orphanvi
 Route::get('/frontend/parent',[WebHomeController::class,'parentform'])->name('parent.form');
 Route::post('/frontend/parent/list',[WebHomeController::class,'parentlist'])->name('parent.list');
 
-Route::get('/frontend/adopt/now/{orphan_id}',[WebHomeController::class,'adoptnow'])->name('adopt.now');
-Route::post('/frontend/adopt/orphan/{orphan_id}',[WebHomeController::class,'adoptorphan'])->name('adopt.orphan');
-
-Route::get('/profile',[WebHomeController::class,'profile'])->name('user.profile');
-//Route::put('/profile/update',[WebHomeController::class,'updateProfile'])->name('profile.update');
 
 
+Route::group(['middleware'=>'auth'],function(){
+
+   Route::get('/frontend/adopt/now/{orphan_id}',[WebHomeController::class,'adoptnow'])->name('adopt.now');
+   Route::post('/frontend/adopt/orphan/{orphan_id}',[WebHomeController::class,'adoptorphan'])->name('adopt.orphan');
+
+   
+   
+   Route::get('/user/logout', [WebHomeController::class, 'logout'])->name('user.logout');
+   Route::get('/profile',[WebHomeController::class,'profile'])->name('user.profile');
+   Route::put('/profile/update',[WebHomeController::class,'updateProfile'])->name('profile.update');
+
+});
 
 
 
@@ -74,6 +81,11 @@ Route::group(['middleware'=>'admin'],function(){
  
  
    Route::get('/',[HomeController::class,'Dashboard'])->name('dashboard');
+   Route::get('/user/list',[UserController::class,'userlist'])->name('user.list');
+   Route::get('/user/active/{user_id}',[UserController::class,'active'])->name('user.active');
+   Route::get('/user/reject/{user_id}',[UserController::class,'reject'])->name('user.reject');
+  
+
    Route::get('/admin',[AdminController::class,'panel'])->name('admin');
 
 

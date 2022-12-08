@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,4 +28,41 @@ if(Auth::attempt($credentials))
         Auth::logout();
         return redirect()->back()->with('message','logout successful.');
     }
+
+    public function userlist(){
+        $user=User::all();
+        return view('backend.pages.user.userlist',compact('user'));
+       
+    }
+
+
+    public function active(Request $request,$user_id)
+    {
+      
+        $user=User::find($user_id);
+        $user->update([
+
+         'status'=>'active'
+        ]);
+        return redirect()->route('user.list')->with('message','Active successfully');
+
+    
+    }
+
+
+    public function reject(Request $request,$user_id)
+    {
+      
+        $user=User::find($user_id);
+        $user->update([
+
+         'status'=>'reject'
+        ]);
+        return redirect()->route('user.list')->with('message','User is not active');
+
+    
+    }
+
+
+    
 }

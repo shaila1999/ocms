@@ -16,11 +16,7 @@
 
     @csrf
 
-
-
-       
-  
-        
+    
         <div class="form-group my-3">
              <label for="">Adoption Status</label>
             <select name="status" id="" class="form-select">

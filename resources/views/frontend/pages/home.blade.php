@@ -259,7 +259,7 @@
 											<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="form-control mt-20" required="" type="email">
 										</div>
 										<div class="col-lg-12 d-flex flex-column">
-											<input name="amound" placeholder="Donation amount (USD)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Donation amount (USD)'" class="form-control mt-20" required="" type="text">
+											<input name="amount" placeholder="Donation amount (BDT)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Donation amount (USD)'" class="form-control mt-20" required="" type="text">
 
 											<textarea class="form-control mt-20" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
 										</div>
@@ -349,6 +349,14 @@
         <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input name="donor_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+
+		<div class="form-group">
+             <label for="">Enter Status</label>
+            <select name="status" id="" class="form-control">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
         </div>
         
 

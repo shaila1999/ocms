@@ -28,6 +28,12 @@
                                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                  Parents
                             </a>
+
+                            <a class="nav-link collapsed" href="{{route('adoptions')}}">
+                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                 Adoptions
+                            </a>
+
                             
                             <a class="nav-link collapsed" href="{{route('members')}}" >
                                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>

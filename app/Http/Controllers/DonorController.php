@@ -45,7 +45,7 @@ class DonorController extends Controller
             'image'=>$fileName
 
         ]);
-        return redirect()->route('donors')->with('message','create seccesfully');
+        return redirect()->route('donors')->with('message','create successfully');
     }
 
 

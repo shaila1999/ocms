@@ -8,10 +8,17 @@
 							</div>
 							<div class="main-menubar d-flex align-items-center">
 								<nav class="hide">
+
 									<a href="#home">Home</a>
 									<a href="#project">Projects</a>
 									<a href="#about">About</a>
 									<a href="#donate">Donate</a>
+									<a href="{{route('parent.form')}}">Parent</a>
+									<a href="{{route('orphan.list')}}">Orphan</a>
+									<a href="{{route('user.profile')}}">Profile</a>
+
+
+
 									
 									
 									@auth

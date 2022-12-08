@@ -21,10 +21,10 @@
       <th scope="col">Member Id</th>
       <th scope="col">Member Name</th>
       <th scope="col">Member Address</th>
-      <th scope="col">Member Phone_number</th>
+      <th scope="col">Phone_number</th>
       <th scope="col">Amount of Donation</th>
-      <th scope="col">Member Image</th>
-      <th scope="col">Member status</th>
+      <th scope="col">Status</th>
+      <th scope="col">Image</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -39,12 +39,12 @@
       <td>{{($data->donation)}}</td>
       <td>{{($data->status)}}</td>
      <td>
-        <img width="100px" style="border-radius: 40px" src="{{url('/uploads/'.$data->image)}}" alt="member_image">
+        <img width="50px" style="border-radius: 30px" src="{{url('/uploads/'.$data->image)}}" alt="member_image">
      </td>
       <td>
-          <a href="#" class="btn btn-primary">Edit</a>
-          <a href="#" class="btn btn-danger">Delete</a>
-          <a href="#" class="btn btn-success">View</a>
+          <a href="{{route('member.edit',$data->id)}}" class="btn btn-primary">Edit</a>
+          <a href="{{route('admin.member.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+          <a href="{{route('admin.member.view',$data->id)}}" class="btn btn-success">View</a>
       </td>
     </tr>
     @endforeach

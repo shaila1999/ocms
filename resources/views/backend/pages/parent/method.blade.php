@@ -14,6 +14,8 @@
       <th scope="col">name</th>
       <th scope="col">address</th>
       <th scope="col">phone_number</th>
+      <th scope="col">Action</th>
+
     </tr>
   </thead>
   <tbody>
@@ -23,6 +25,11 @@
       <td>{{($data->name)}}</td>
       <td>{{($data->address)}}</td>
       <td>{{($data->phone_number)}}</td>
+      <td>
+                <a href="{{route('parent.edit',$data->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('admin.parent.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                <a href="{{route('admin.parent.view',$data->id)}}" class="btn btn-success">View</a>
+      </td>
     </tr>
     @endforeach
    

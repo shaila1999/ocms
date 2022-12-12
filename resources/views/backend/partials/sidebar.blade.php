@@ -44,9 +44,9 @@
                                  Members
                             </a>
                             
-                            <a class="nav-link collapsed" href="{{url('/donations')}}" >
+                            <a class="nav-link collapsed" href="{{route('donations')}}" >
                                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                 Donation
+                                 Donations
                             </a>
                             
                             <a class="nav-link collapsed" href="{{route('donors')}}" >

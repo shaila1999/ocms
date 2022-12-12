@@ -16,15 +16,15 @@
     <div class="col-md-6 col-lg-4">
 
       <div class="card">
-        <img src="{{url('/uploads/',$data->image)}}" class="card-img-top" alt="...">
+        <img src="{{url('/uploads/',$data->image)}}" width="80" class="mx-auto mt-5" alt="...">
           <div class="card-body">
             <h5 class="card-title">Orphan details</h5>
             
-            <p class="card-text">Orphan Name:    {{$data->name}}</p>
-            <p class="card-text">Orphan Age:     {{$data->age}}</p>
-            <p class="card-text">Orphan Gender:  {{$data->gender}}</p>
-            <p class="card-text">Orphan Status:  {{$data->status}}</p>
-            <p class="card-text">Orphan Image:   {{$data->image}}</p>
+            <p class="card-text"> <strong>Name</strong>:    {{$data->name}}</p>
+            <p class="card-text"> <strong>Age</strong>:     {{$data->age}}</p>
+            <p class="card-text"> <strong>Gender</strong>:  {{$data->gender}}</p>
+            <p class="card-text"> <strong>Status</strong>:  {{$data->status}}</p>
+            <p class="card-text"> <strong>Image</strong>:   {{$data->image}}</p>
             
             <a href="{{route('adopt.now',$data->id)}}" class="btn btn-primary">Adopt Now</a>
           </div>

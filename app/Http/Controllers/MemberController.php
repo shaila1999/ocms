@@ -24,7 +24,7 @@ class MemberController extends Controller
 
         $request->validate([
             'name'=>'required',
-            'phone' => 'required|numeric|size:11',
+            'phone' => 'required',
             'image'=>'required'
            
         ]);

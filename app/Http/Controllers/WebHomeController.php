@@ -72,9 +72,16 @@ class WebHomeController extends Controller
         return view('frontend.pages.orphanlist',compact('orphan'));
     }
 
-    public function parentform(){
-        return view('frontend.pages.parentform');
-    }
+    public function parentform()
+        {
+       
+            $parent=User::all();
+            return view('frontend.pages.parentform',compact('parent'));
+        }
+
+    
+        
+    
 
 
     public function parentlist(Request $request){
@@ -95,11 +102,11 @@ class WebHomeController extends Controller
         return redirect()->route('parents')->with('message','create successfully');
     }
 
-    public function orphanview($view_id)
+    /*public function orphanview($view_id)
     {
         $view=Orphan::find($view_id);
         return view('frontend.pages.orphanview',compact('view'));
-    }
+    }*/
 
 
     public function adoptnow($orphan_id){

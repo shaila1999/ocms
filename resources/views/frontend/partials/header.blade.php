@@ -12,12 +12,21 @@
         <a class="nav-link" href="#">Home</a>
       </li>
 
-	  <li class="nav-item active">
-        <a class="nav-link" href="{{route('parent.form')}}">Parent</a>
-      </li>
+	 
+      <li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle text-bold text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  Members
+        </a>
+
+			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{route('parent.form')}}">Parents</a>
+          <a class="dropdown-item" href="donor">Donors</a>
+        </div>
+		
+		  </li>
 
 	  <li class="nav-item active">
-        <a class="nav-link" href="{{route('orphan.list')}}">Orphan</a>
+        <a class="nav-link" href="{{route('orphan.list')}}">Orphans</a>
       </li>
 
 	  <li class="nav-item dropdown">

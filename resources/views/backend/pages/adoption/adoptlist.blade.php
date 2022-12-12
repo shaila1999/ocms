@@ -13,7 +13,7 @@
         <p class="alert alert-danger">{{session()->get('error')}}</p>
     @endif
 <a href="{{route('adopt.list')}}" class="btn btn-success">
-  Add New Orphan
+  Adopt Orphan
   </a>
 <table class="table">
   <thead>

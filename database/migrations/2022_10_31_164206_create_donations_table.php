@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
-            $table->string('food')->nullable();
-            $table->string('cloths')->nullable();
-            $table->string('money')->nullable();
+            $table->foreignId('user_id');
+            $table->string('amount');
+            $table->string('details');
+            $table->string('phone_number');
+            $table->string('payment_method');
+            $table->string('transaction_id')->nullable();
+
             $table->timestamps();
         });
     }

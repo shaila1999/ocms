@@ -5,50 +5,32 @@
 
 @section('content')
 
-<div class="container mx-auto my-5" >  
-    
-<form action="{{route('parent.list')}}" method="post"> 
-
-    @if($errors->any())
-    @foreach($errors->all() as $message)
-    <p class="alert alert-danger">{{$message}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 py-3">
+    <h1 class="h1">Parents List</h1>
+    </div>
+   
+    @foreach($parent as $data)
+        @if($data->role=='parent')
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card">
+                <img src="{{url('/frontend/img/user.png')}}" width="100" class="mx-auto mt-3" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Parent details</h5>
+                    
+                    <p class="card-text"> <strong>Name</strong>:    {{$data->name}}</p>
+                    <p class="card-text"> <strong>Address</strong>: {{$data->address}}</p>
+                    <p class="card-text"> <strong>Email</strong>:    {{$data->email}}</p>
+                    <p class="card-text"> <strong>Role</strong>:     {{$data->role}}</p>
+        
+                </div>
+            </div>
+        </div>
+        @endif
     @endforeach
-    @endif
-
-
-    @csrf
-
-        <div class="form-group my-3">
-            <label for="name">Enter Parent Name</label>
-            <input required name="parent_name" type="text" class="form-control" id="name" placeholder="Enter parent name">
-        </div>
-
-        <div class="form-group my-3">
-            <label for="">Enter Parent Address</label>
-            <input name="parent_address" type="text" class="form-control"  placeholder="Enter parent address ">
-        </div>
-
-        <div class="form-group my-3">
-            <label for="">Enter Parent Phone_Number</label>
-            <input required name="phone_number" type="digit" class="form-control"  placeholder="Enter phone number ">
-
-         </div>
-
-         <div class="form-group my-3">
-            <label for="">Enter Parent Email</label>
-            <input name="parent_email" type="text" class="form-control"  placeholder="Enter parent email ">
-
-         </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  </div>
 </div>
-
-
-
-
-
-
 
 
 

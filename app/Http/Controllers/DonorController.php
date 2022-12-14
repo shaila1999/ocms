@@ -5,11 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Donor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
+
 
 class DonorController extends Controller
 {
     public function information(){
-        $donate=Donor::paginate(5);
+        $donate = DB::table('users')
+            ->join('donors', 'users.id', '=', 'donors.user_id')
+            ->select('users.*', 'donors.*')
+            ->where('users.role', '=', 'donors')
+            ->get();
+            //dd($donate);
+        //$donate=Donor::paginate(5);
         return view('backend.pages.donor.information',compact('donate'));
     }
     public function donorcreate(){
@@ -17,8 +25,7 @@ class DonorController extends Controller
     }
     public function info(Request $request)
     {
-        $request->validate([
-            'name'=>'required|unique:donors,name',
+        $request->validate([ 
             'phone'=>'required',
             'image'=>'required'
            
@@ -37,18 +44,18 @@ class DonorController extends Controller
         // dd($request->all());
          Donor::create([
             //database column name=> input field name
-            'name'=>$request->name,
-            'address'=>$request->address,
             'phone_number'=>$request->phone,
-            'description'=>$request->description,
-            'email'=>$request->email,
+            'gender'=>$request->gender,
+            'user_id'=>$request->user_id,
             'image'=>$fileName
 
         ]);
-        return redirect()->route('donors')->with('message','create successfully');
+        notify()->success('Registration success');
+         
+        return redirect()->route('home')->with('message','Donor created successfully');
     }
 
-
+/*
 
     public function deleteDonor($donor_id) 
     {
@@ -103,6 +110,7 @@ class DonorController extends Controller
         return redirect()->route('donors')->with('message','Update seccesfully');
 
     }
+    */
 
 
 }

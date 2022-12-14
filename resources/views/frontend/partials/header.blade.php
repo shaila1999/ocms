@@ -34,6 +34,7 @@
 			<a class="nav-link dropdown-toggle text-bold text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			{{auth()->user()->name}}
 			</a>
+      
 			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				<a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
 				<a class="dropdown-item" href="{{route('user.logout')}}">Logout</a>

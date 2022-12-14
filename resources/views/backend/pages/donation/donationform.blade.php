@@ -34,7 +34,7 @@
         </div>
 
         <div class="card p-3 bg-primary text-white ">
-          <h4 class="mb-4 text-warning">Our Marcent Numbers:</h4>
+          <h4 class="mb-4 text-warning  ">Our Marcent Numbers:</h4>
           <p><strong>Bkash:</strong> 01978987373</p>
           <p><strong>Nagad:</strong> 01978987372</p>
           <p><strong>Rocket:</strong> 019789873723</p>

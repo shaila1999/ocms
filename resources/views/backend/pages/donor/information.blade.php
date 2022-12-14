@@ -5,7 +5,7 @@
 
 @section('content')
 
-<h1>Donor Information</h1>  
+<h1>Donor List</h1>  
 @if(session()->has('message'))
         <p class="alert alert-success">{{session()->get('message')}}</p>
       @endif
@@ -13,19 +13,18 @@
     @if(session()->has('error'))
         <p class="alert alert-danger">{{session()->get('error')}}</p>
     @endif
-<a href="{{route('donor.create')}}" class="btn btn-success">
-  Donor Details
-  </a>
+
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Donor Id</th>
+      <th scope="col">Id</th>
       <th scope="col">Donor Name</th>
       <th scope="col">Donor Address</th>
-      <th scope="col">Donor Phone_number</th>
-      <th scope="col">Donor Image</th>
-      <th scope="col">Action</th>
-
+      <th scope="col">Donor Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Image</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -34,24 +33,17 @@
       <th scope="row">{{($data->id)}}</th>
       <td>{{($data->name)}}</td>
       <td>{{($data->address)}}</td>
+      <td>{{($data->email)}}</td>
       <td>{{($data->phone_number)}}</td>
+      <td>{{($data->gender)}}</td>
       <td>
-               
-
-                <img width="50px" style="border-radius: 20px" src="{{url('/uploads/'.$data->image)}}" alt="staff_image">
-            </td>
-
-            <td>
-                <a href="{{route('donor.edit',$data->id)}}" class="btn btn-primary">Edit</a>
-                <a href="{{route('admin.donor.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="{{route('admin.donor.view',$data->id)}}" class="btn btn-success">View</a>
-            </td>
+      <img width="50px" style="border-radius: 20px" src="{{url('/uploads/'.$data->image)}}" alt="staff_image">
+      </td>         
     </tr>
-    @endforeach
-   
+  @endforeach
   </tbody>
 </table>
 
-{{$donate->links()}}
+
 
 @endsection

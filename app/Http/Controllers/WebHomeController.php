@@ -17,7 +17,7 @@ class WebHomeController extends Controller
     public function registration(Request $request){
         
        
-        User::create([
+        $user=User::create([
             'name'=>$request->donor_name,
             'email'=>$request->donor_email,
             'password'=> bcrypt($request->donor_password),
@@ -26,9 +26,11 @@ class WebHomeController extends Controller
             'address'=>$request->address
          ]);
          
-
-         notify()->success('Registration success');
-         return redirect()->back();
+        if($user->role=='donor'){
+            return redirect()->route('donor.create')->with('id',$user->id);
+        }
+         //notify()->success('Registration success');
+         //return redirect()->back();
         
     }
 

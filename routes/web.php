@@ -39,6 +39,9 @@ Route::get('/frontend/orphan/view/{view_id}',[WebHomeController::class,'orphanvi
 Route::get('/frontend/parent',[WebHomeController::class,'parentform'])->name('parent.form');
 Route::post('/frontend/parent/list',[WebHomeController::class,'parentlist'])->name('parent.list');
 
+Route::get('/donor/create',[DonorController::class,'donorcreate'])->name('donor.create');
+Route::post('/donor/info',[DonorController::class,'info'])->name('donor.info');
+
 
 
 
@@ -135,13 +138,8 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
 
 
       Route::get('/donors',[DonorController::class,'information'])->name('donors');
-      Route::get('/donor/create',[DonorController::class,'donorcreate'])->name('donor.create');
-      Route::post('/donor/info',[DonorController::class,'info'])->name('donor.info');
-
-      Route::get('/donor/delete/{donor_id}',[DonorController::class,'deleteDonor'])->name('admin.donor.delete');
-      Route::get('/donor/view/{donor_id}',[DonorController::class,'viewDonor'])->name('admin.donor.view');
-      Route::get('/donor/edit/{donor_id}',[DonorController::class,'edit'])->name('donor.edit');
-      Route::put('/donor/update/{donor_id}',[DonorController::class,'update'])->name('donor.update');
+      
+      
    
 
    }); 

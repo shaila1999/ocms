@@ -37,7 +37,7 @@
       <td>{{($data->phone_number)}}</td>
       <td>{{($data->gender)}}</td>
       <td>
-      <img width="50px" style="border-radius: 20px" src="{{url('/uploads/'.$data->image)}}" alt="staff_image">
+      <img width="50px" style="border-radius: 20px" src="{{url('/uploads/'.$data->image)}}" alt="donor_image">
       </td>         
     </tr>
   @endforeach

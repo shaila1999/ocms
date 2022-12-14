@@ -42,6 +42,11 @@ Route::post('/frontend/parent/list',[WebHomeController::class,'parentlist'])->na
 Route::get('/donor/create',[DonorController::class,'donorcreate'])->name('donor.create');
 Route::post('/donor/info',[DonorController::class,'info'])->name('donor.info');
 
+Route::get('/frontend/donors',[WebHomeController::class,'donorlist'])->name('donor.list');
+
+Route::get('/parent/create',[ParentController::class,'name'])->name('parent.create');
+Route::post('/parent/class',[ParentController::class,'class'])->name('parent.class');
+
 
 
 
@@ -114,8 +119,7 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
 
 
       Route::get('/parents',[ParentController::class,'method'])->name('parents');
-      Route::get('/parent/create',[ParentController::class,'name'])->name('parent.create');
-      Route::post('/parent/class',[ParentController::class,'class'])->name('parent.class');
+      
 
       Route::get('/parent/delete/{parent_id}',[ParentController::class,'deleteParent'])->name('admin.parent.delete');
       Route::get('/parent/view/{parent_id}',[ParentController::class,'viewParent'])->name('admin.parent.view');

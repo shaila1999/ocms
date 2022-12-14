@@ -3,18 +3,26 @@
 @section('content')
 
 <h1>Parent List</h1>
-<a href="{{route('parent.create')}}" class="btn btn-success">
-  Create Parents
-</a>
+
 
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">id</th>
-      <th scope="col">name</th>
-      <th scope="col">address</th>
-      <th scope="col">phone_number</th>
-      <th scope="col">Action</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone number</th>
+      <th scope="col">Email</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Annual Income</th>
+      <th scope="col">Marital Status</th>
+      <th scope="col">N-ID</th>
+      <th scope="col">Family Member</th>
+      <th scope="col">Adoption History</th>
+      <th scope="col">Blood Group</th>
+      <th scope="col">Image</th>
+      
 
     </tr>
   </thead>
@@ -25,22 +33,24 @@
       <td>{{($data->name)}}</td>
       <td>{{($data->address)}}</td>
       <td>{{($data->phone_number)}}</td>
+      <td>{{($data->email)}}</td>
+      <td>{{($data->gender)}}</td>
+      <td>{{($data->occupation)}}</td>
+      <td>{{($data->annual_income)}}</td>
+      <td>{{($data->marital_status)}}</td>
+      <td>{{($data->n_id)}}</td>
+      <td>{{($data->family_member)}}</td>
+      <td>{{($data->adoption_history)}}</td>
+      <td>{{($data->blood_group)}}</td>
       <td>
-                <a href="{{route('parent.edit',$data->id)}}" class="btn btn-primary">Edit</a>
-                <a href="{{route('admin.parent.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="{{route('admin.parent.view',$data->id)}}" class="btn btn-success">View</a>
-      </td>
+      <img width="50px" style="border-radius: 20px" src="{{url('/uploads/'.$data->image)}}" alt="parent_image">
+      </td> 
+      
     </tr>
     @endforeach
    
   </tbody>
 </table>
-
-{{$name->links()}}
-
-
-
-
 
 @endsection
 

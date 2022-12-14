@@ -20,7 +20,7 @@
 
 			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{route('parent.form')}}">Parents</a>
-          <a class="dropdown-item" href="donor">Donors</a>
+          <a class="dropdown-item" href="{{route('donor.list')}}">Donors</a>
         </div>
 		
 		  </li>

@@ -39,7 +39,7 @@
  
 
 
- <div style="margin-top: 80px;">
+ <div>
   @yield('content') 
   </div>
   @include('frontend.partials.footer')

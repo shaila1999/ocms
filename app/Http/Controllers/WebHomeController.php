@@ -7,6 +7,8 @@ use App\Models\Orphan;
 use App\Models\Parents;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class WebHomeController extends Controller
 {
@@ -29,6 +31,10 @@ class WebHomeController extends Controller
         if($user->role=='donor'){
             return redirect()->route('donor.create')->with('id',$user->id);
         }
+
+        if($user->role=='parent'){
+            return redirect()->route('parent.create')->with('id',$user->id);
+        }
          //notify()->success('Registration success');
          //return redirect()->back();
         
@@ -49,7 +55,8 @@ class WebHomeController extends Controller
                 notify()->error('Account Inactive.Contact With Admin');
                 auth()->logout();     
             }
-            else{
+            else
+            {
                 notify()->success('Login success');
             }
             
@@ -75,12 +82,23 @@ class WebHomeController extends Controller
     }
 
     public function parentform()
-        {
-       
-            $parent=User::all();
-            return view('frontend.pages.parentform',compact('parent'));
-        }
+    {
+    
+        $parent=DB::table('users')
+        ->join('parents', 'users.id', '=', 'parents.user_id')
+        ->select('users.*', 'parents.*') 
+        ->get();
+        return view('frontend.pages.parentform',compact('parent'));
+    }
 
+    public function donorlist()
+    {
+        $donor=DB::table('users')
+        ->join('donors', 'users.id', '=', 'donors.user_id')
+        ->select('users.*', 'donors.*') 
+        ->get();
+        return view('frontend.pages.donorlist',compact('donor'));
+    }
     
         
     

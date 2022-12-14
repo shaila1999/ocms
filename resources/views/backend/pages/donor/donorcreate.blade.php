@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="container">
-<h1 class="h1" >Donor Information</h1>
+<h1 class="h1" >Donors Information</h1>
     <div class="row">
         <div class="col-12 col-md-6">
         <form action="{{route('donor.info')}}" method="post" enctype="multipart/form-data">
@@ -39,12 +39,6 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
-
-
-
-
-
 
         </div>
     </div>

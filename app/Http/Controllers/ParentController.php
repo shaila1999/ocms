@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Parents;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class ParentController extends Controller
 {
     public function method(){
-       $name=Parents::paginate(5);
+        $name = DB::table('users')
+            ->join('parents', 'users.id', '=', 'parents.user_id')
+            ->select('users.*', 'parents.*')
+            //->where('users.role', '=', 'parents')
+            ->get();
+       //$name=Parents::paginate(5);
        //dd($name);
         return view('backend.pages.parent.method',compact('name'));
     }
@@ -19,24 +25,44 @@ class ParentController extends Controller
 
     public function class(Request $request){
         $request->validate([
-            'parent_name'=>'required',
-            'phone_number'=>'required'
+            'phone'=>'required'
         ]);
 
-       
+
+        $fileName=null;
+        if($request->hasFile('image'))
+        {
+            //generate name
+            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads',$fileName);
+        }
+
+      
+
+       //dd($request->all());
          Parents::create([
             //database column name=> input field name
-            'name'=>$request->parent_name,
-            'address'=>$request->parent_address,
-            'phone_number'=>$request->phone_number,
-            'email'=>$request->parent_email
+            'phone_number'=>$request->phone,
+            'gender'=>$request->gender,
+            'user_id'=>$request->user_id,
+            'occupation'=>$request->occupation,
+            'n_id'=>$request->n_id,
+            'annual_income'=>$request->income,
+            'marital_status'=>$request->marital_status,
+            'family_member'=>$request->family_member,
+            'adoption_history'=>$request->adoption_history,
+            'blood_group'=>$request->blood_group,
+            'image'=>$fileName
             ]);
-        
-        return redirect()->route('parents')->with('message','create seccesfully');
+            
+            notify()->success('Registration success');
+         
+            return redirect()->route('home')->with('message','Parent created successfully');
+       
 
     }
 
-
+/*
     public function deleteParent($parent_id) 
     {
         Parents::findOrFail($parent_id)->delete();
@@ -89,7 +115,8 @@ class ParentController extends Controller
         return redirect()->route('parents')->with('message','Update seccesfully');
 
     }
-    
+    */
 
 
 }
+

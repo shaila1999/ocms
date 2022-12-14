@@ -14,7 +14,7 @@ class DonorController extends Controller
         $donate = DB::table('users')
             ->join('donors', 'users.id', '=', 'donors.user_id')
             ->select('users.*', 'donors.*')
-            ->where('users.role', '=', 'donors')
+            //->where('users.role', '=', 'donors')
             ->get();
             //dd($donate);
         //$donate=Donor::paginate(5);
@@ -41,7 +41,7 @@ class DonorController extends Controller
         }
        
 
-        // dd($request->all());
+        //dd($request->all());
          Donor::create([
             //database column name=> input field name
             'phone_number'=>$request->phone,

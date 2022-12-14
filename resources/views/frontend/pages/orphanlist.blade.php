@@ -1,11 +1,5 @@
 @extends('frontend.master')
-
-
-
 @section('content')
-
-
-
 <div class="container">
   <div class="row">
     <div class="col-12 py-3">
@@ -13,20 +7,23 @@
     </div>
    
     @foreach($orphan as $data)
-    <div class="col-md-6 col-lg-4">
-
+    <div class="col-md-4 col-lg-3 col-sm-6 mb-4">
       <div class="card">
-        <img src="{{url('/uploads/',$data->image)}}" width="80" class="mx-auto mt-5" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Orphan details</h5>
-            
-            <p class="card-text"> <strong>Name</strong>:    {{$data->name}}</p>
+        <div class="image mx-auto" style="height: 150px; width: 120px; overflow: hidden;">
+          <img src="{{url('/uploads/',$data->image)}}" class="img-responsive" alt="...">
+        </div>
+        <div class="card-body text-center">            
+            <p class="card-text" style="font-size: 20px; color: #00277e;  font-weight: 800;">{{$data->name}}</p>
             <p class="card-text"> <strong>Age</strong>:     {{$data->age}}</p>
             <p class="card-text"> <strong>Gender</strong>:  {{$data->gender}}</p>
             <p class="card-text"> <strong>Status</strong>:  {{$data->status}}</p>
-            <p class="card-text"> <strong>Image</strong>:   {{$data->image}}</p>
             
-            <a href="{{route('adopt.now',$data->id)}}" class="btn btn-primary">Adopt Now</a>
+              @if($data->status != "adopt")
+                <a href="{{route('adopt.now',$data->id)}}" class="btn btn-primary">Adopt Now</a>   
+              @else
+              <a disabled class="btn btn-success text-white">Already adopted</a>          
+              @endif
+            
           </div>
         </div>
     </div>

@@ -12,6 +12,7 @@ use App\Http\controllers\UserController;
 use App\Http\Controllers\WebHomeController;
 use App\Http\Controllers\AdoptionController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\ExpenseController;
 
 
 /*
@@ -50,6 +51,7 @@ Route::post('/parent/class',[ParentController::class,'class'])->name('parent.cla
 
 
 
+
 Route::group(['middleware'=>'auth'],function(){
 
    Route::get('/frontend/adopt/now/{orphan_id}',[WebHomeController::class,'adoptnow'])->name('adopt.now');
@@ -75,6 +77,7 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
    
    
       Route::get('/',[HomeController::class,'Dashboard'])->name('dashboard');
+
       Route::get('/user/list',[UserController::class,'userlist'])->name('user.list');
       Route::get('/user/active/{user_id}',[UserController::class,'active'])->name('user.active');
       Route::get('/user/reject/{user_id}',[UserController::class,'reject'])->name('user.reject');
@@ -129,6 +132,8 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
 
       Route::get('/adoptions',[AdoptionController::class,'adopt'])->name('adoptions');
       Route::get('/adoption/list',[AdoptionController::class,'adoptlist'])->name('adopt.list');
+      Route::get('/parent/active/{parent_id}',[AdoptionController::class,'active'])->name('parent.active');
+      Route::get('/parent/reject/{parent_id}',[AdoptionController::class,'reject'])->name('parent.reject');
       Route::post('/adoption/form',[AdoptionController::class,'adoptform'])->name('adopt.form');
       
       
@@ -139,9 +144,14 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
       Route::get('/donation/confirmation',[DonationController::class,'confirmation'])->name('donation.confirmation');
       Route::post('/donation/payment',[DonationController::class,'paymentconfirmation'])->name('donation.payment');
 
-
-
       Route::get('/donors',[DonorController::class,'information'])->name('donors');
+
+
+      Route::get('/expenses',[ExpenseController::class,'expenselist'])->name('expense.list');
+      Route::get('/expense.form',[ExpenseController::class,'expenseform'])->name('expense.form');
+      Route::post('/expense.details',[ExpenseController::class,'details'])->name('expense.details');
+
+
       
       
    

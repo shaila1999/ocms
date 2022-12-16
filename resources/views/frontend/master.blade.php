@@ -42,7 +42,7 @@
  <div>
   @yield('content') 
   </div>
-  @include('frontend.partials.footer')
+ 
 
 
 

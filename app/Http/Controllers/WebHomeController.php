@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Adoption;
 use App\Models\Orphan;
 use App\Models\Parents;
+use App\Models\Staff;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,8 +14,11 @@ use Illuminate\Support\Facades\DB;
 class WebHomeController extends Controller
 {
     public function webHome(){
-        return view('frontend.pages.home');
+        $staffs=Staff::all();
+        return view('frontend.pages.home',compact('staffs'));
     }
+
+
 
     public function registration(Request $request){
         

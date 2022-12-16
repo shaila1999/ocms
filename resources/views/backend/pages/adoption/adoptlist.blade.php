@@ -22,6 +22,7 @@
       <th scope="col">Orphan Id</th>
       <th scope="col">Parent Id</th>
       <th scope="col">Status</th>
+      <th scope="col">Action</th>
       
 
     </tr>
@@ -33,18 +34,15 @@
       <td>{{($data->id)}}</td>
       <td>{{($data->id)}}</td>
       <td>{{($data->status)}}</td>
-     
-           
+      <td> 
+        
+      </td>       
     </tr>
-    @endforeach
+  @endforeach
    
   </tbody>
 </table>
 
 {{$adopt->links()}}
-
-
-
-
 
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Adoption;
+use App\Models\Parents;
 use Illuminate\Http\Request;
 
 class AdoptionController extends Controller
@@ -14,7 +15,8 @@ class AdoptionController extends Controller
     }
 
     public function adoptlist(){
-        return view('backend.pages.adoption.adopt');
+        $adopt=Adoption::paginate(10);
+        return view('backend.pages.adoption.adopt',compact('adopt'));
     }
 
     public function adoptform(Request $request)
@@ -26,8 +28,6 @@ class AdoptionController extends Controller
            
         ]);
          
-
-       
         // dd($request->all());
             Adoption::create([
             //database column name=> input field name
@@ -35,9 +35,10 @@ class AdoptionController extends Controller
             'orphan_id'=>$request->orphan_id,
             'status'=>$request->status
 
-
         ]);
         return redirect()->route('adoptions')->with('message','create successfully');
     }
+        
+    
 
 }

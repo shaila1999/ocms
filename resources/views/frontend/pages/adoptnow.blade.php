@@ -21,10 +21,12 @@
              <label for="">Adoption Status</label>
             <select name="status" id="" class="form-select">
                 <option value="pending">Pending</option>
-                <option value="approve">Approve</option>
+                
                 
             </select>
         </div>
+
+        
 
 
        

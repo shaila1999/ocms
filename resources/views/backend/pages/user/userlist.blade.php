@@ -21,10 +21,10 @@
     </tr>
   </thead>
   <tbody>
-    @php $i=1; @endphp
-  @foreach($user as $data)
+   
+  @foreach($user as $key => $data)
     <tr>
-      <th scope="row">{{$i;}}</th>
+      <th scope="row">{{++$key}}</th>
       <td>{{($data->email)}}</td>
       <td>{{($data->name)}}</td>
       <td>{{($data->role)}}</td>
@@ -46,12 +46,12 @@
 
         
     </tr>
-    @php $i++; @endphp
+    
     @endforeach
    
   </tbody>
 </table>
-
+{{$user->links()}}
 
 
 @endsection

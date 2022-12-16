@@ -8,10 +8,6 @@
                                  Dashboard
                             </a>
                             
-                            <a class="nav-link collapsed" href="{{route('admin')}}" >
-                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div> 
-                                  Admin
-                            </a>
 
                              <a class="nav-link collapsed" href="{{route('user.list')}}" >
                                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div> 
@@ -54,9 +50,9 @@
                                  Donors
                             </a>
                             
-                            <a class="nav-link collapsed" href="{{url('/expense')}}" >
+                            <a class="nav-link collapsed" href="{{route('expense.list')}}" >
                                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                 Expense
+                                 Expenses
                             </a>
 
                             <a class="nav-link collapsed" href="" >

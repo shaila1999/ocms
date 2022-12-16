@@ -30,7 +30,7 @@ if(Auth::attempt($credentials))
     }
 
     public function userlist(){
-        $user=User::all();
+        $user=User::paginate(10);
         return view('backend.pages.user.userlist',compact('user'));
        
     }

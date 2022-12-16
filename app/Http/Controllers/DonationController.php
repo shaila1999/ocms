@@ -53,7 +53,7 @@ class DonationController extends Controller
             //database column name=> input field name
             'transaction_id'=>$request->transaction_id,
         ]);
-         return redirect()->route('donations')->with('message','donation seccesfully');
+         return redirect()->route('donations')->with('message','donation successfully');
             
     }
     

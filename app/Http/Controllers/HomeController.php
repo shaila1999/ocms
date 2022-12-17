@@ -36,13 +36,13 @@ class HomeController extends Controller
             ->limit(5)
             ->get();
 
-            $donationlist = DB::table('users')
+        $donationlist = DB::table('users')
             ->join('donations', 'users.id', '=', 'donations.user_id')
             ->select('users.*', 'donations.*')
             ->limit(5)
             ->get();
 
-            $expenses=Expense::paginate(5);
+        $expenses=Expense::paginate(5);
         
         
         //dd($parents);

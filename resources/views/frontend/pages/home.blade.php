@@ -13,7 +13,7 @@
                     Your Donation <br>
                     is Others Inspiration
                 </h1>
-                <a href="#donate" class="head-btn btn text-uppercase">Donate Now</a>
+                <a href="{{route('donate.view')}}" class="head-btn btn text-uppercase">Donate Now</a>
             </div>
         </div>
     </div>

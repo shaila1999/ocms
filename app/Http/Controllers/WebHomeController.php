@@ -122,8 +122,9 @@ class WebHomeController extends Controller
             'phone_number'=>$request->phone_number,
             'email'=>$request->parent_email
             ]);
+            notify()->success('create successfully');
+            return redirect()->back();
         
-        return redirect()->route('parents')->with('message','create successfully');
     }
 
     /*public function orphanview($view_id)
@@ -160,7 +161,8 @@ class WebHomeController extends Controller
 
 
         ]);
-        return redirect()->route('home')->with('message','adopt successfully');
+        notify()->error('Request Pending,Contact With Admin.');
+        return redirect()->back();
     }  
     
     

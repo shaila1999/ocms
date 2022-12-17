@@ -38,7 +38,20 @@ class AdoptionController extends Controller
         ]);
         return redirect()->route('adoptions')->with('message','create successfully');
     }
+
+
+    public function approve($id){
+            Adoption::find($id)->update([
+                'status'=>'approved'
+            ]);
+            return redirect()->route('adoptions')->with('message','Adoption completed');
+    }
         
-    
+    public function reject($id){
+        Adoption::find($id)->update([
+            'status'=>'rejected'
+        ]);
+        return redirect()->route('adoptions')->with('message','Rejected');
+    }
 
 }

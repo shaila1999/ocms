@@ -20,7 +20,7 @@
             <div class="card bg-warning text-white mb-4">
                 <div class="card-body">Total Parents</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class=" text-white stretched-link" href="#">{{sizeof($parents)}}</a>
+                    <a class=" text-white stretched-link" href="{{route('user.list')}}">{{sizeof($parents)}}</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="card bg-success text-white mb-4">
                 <div class="card-body">Total Donors</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class=" text-white stretched-link" href="#">{{sizeof($donors)}}</a>
+                    <a class=" text-white stretched-link" href="{{route('user.list')}}">{{sizeof($donors)}}</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
             <div class="card bg-danger text-white mb-4">
                 <div class="card-body">Total Donation</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">{{$total_donations}}</a>
+                    <a class="small text-white stretched-link" href="{{route('donations')}}">{{$total_donations}}</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <div class="card bg-info text-white mb-4">
                 <div class="card-body">Pending user Request</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">{{sizeof($pending_req)}}</a>
+                    <a class="small text-white stretched-link" href="{{route('user.list')}}">{{sizeof($pending_req)}}</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                 @foreach($expenses as $key=> $data)
                     <tr>
                         <th scope="row">{{++$key}}</th>
-                        <td>{{($data->expense_type)}}</td>
+                        <td>{{($data->type)}}</td>
                         <td>{{($data->amount)}}</td>
                         <td>{{($data->purpose)}}</td>
                         

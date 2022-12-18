@@ -41,8 +41,10 @@ Route::get('/frontend/orphan/view/{view_id}',[WebHomeController::class,'orphanvi
 Route::get('/frontend/parent',[WebHomeController::class,'parentform'])->name('parent.form');
 Route::post('/frontend/parent/list',[WebHomeController::class,'parentlist'])->name('parent.list');
 
+
 Route::get('/donor/create',[DonorController::class,'donorcreate'])->name('donor.create');
 Route::post('/donor/info',[DonorController::class,'info'])->name('donor.info');
+
 
 Route::get('/frontend/donors',[WebHomeController::class,'donorlist'])->name('donor.list');
 
@@ -156,6 +158,7 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
       Route::post('/donation/payment',[DonationController::class,'paymentconfirmation'])->name('donation.payment');
 
       Route::get('/donors',[DonorController::class,'information'])->name('donors');
+      
 
 
       Route::get('/expenses',[ExpenseController::class,'expenselist'])->name('expense.list');
@@ -163,7 +166,9 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
       Route::post('/expense.details',[ExpenseController::class,'details'])->name('expense.details');
 
 
-      
+      //report generates for donation
+      Route::get('/report',[DonationController::class,'report'])->name('donation.report');
+      Route::get('/report/search',[DonationController::class,'reportSearch'])->name('donation.report.search');
       
    
 

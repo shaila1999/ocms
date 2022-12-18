@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="pt-3">Expense</h1>
+<h1 class="h1">Expense form</h1>
 <form class="w-50" action="{{route('expense.details')}}" method="post">
 
     @if($errors->any())

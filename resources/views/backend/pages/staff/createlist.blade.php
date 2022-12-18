@@ -3,6 +3,7 @@
 
 @section('content')
 
+<h1 class="h1" h1>Staffs form</h1>
 <form action="{{route('staff.care')}}" method="post" enctype="multipart/form-data">
 
     @if($errors->any())

@@ -3,6 +3,7 @@
 
 @section('content')
 
+<h1 class="h1" h1>Orphans form</h1>
 <form action="{{route('orphan.info')}}" method="post" enctype="multipart/form-data">
 
     @if($errors->any())

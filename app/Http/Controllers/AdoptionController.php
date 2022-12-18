@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AdoptionController extends Controller
 {
     public function adopt(){
-        $adopt=Adoption:: paginate(5);
+        $adopt=Adoption:: paginate(10);
 
         return view('backend.pages.adoption.adoptlist',compact('adopt'));
     }

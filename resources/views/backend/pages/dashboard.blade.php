@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid">
-    <h1 class="mb-4">Welcome to {{auth()->user()->name}}</h1>
+    <h1 class="h1">Welcome to {{auth()->user()->name}}</h1>
 
     <div class="row">
 
@@ -78,7 +78,7 @@
     
     <div class="row">
         <div class="col-md-6">
-            <h4>Pending Request</h4>
+            <h4 class="h2">Pending Request</h4>
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
@@ -108,8 +108,8 @@
 
 
         <div class="col-md-6">
-            <h4>Recent Donor List</h4>
-            <table class="table table-success">
+            <h4 class="h2">Recent Donor List</h4>
+            <table class="table table-info">
                 <thead>
                     <tr>
                         <th scope="col">Sl</th>
@@ -131,7 +131,7 @@
             </table>
         </div>
         <div class="col-md-6">
-            <h4>Recent Donation</h4>
+            <h4 class="h2">Recent Donation</h4>
             <table class="table table-danger">
                 <thead>
                     <tr>
@@ -152,14 +152,12 @@
                         <td>{{($data->phone_number)}}</td>
                     </tr>
                 @endforeach
-
-                    
                 </tbody>
             </table>
         </div>
 
         <div class="col-md-6">
-                <h4>Recent Expense</h4>
+                <h4 class="h2">Recent Expense</h4>
             <table class="table table-warning">
                 <thead>
                     <tr>

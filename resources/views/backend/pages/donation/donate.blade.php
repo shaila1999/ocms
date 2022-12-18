@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 
-<h1>Donation List</h1>  
+<h1 class="h1">Donation List</h1>  
 @if(session()->has('message'))
         <p class="alert alert-success">{{session()->get('message')}}</p>
       @endif

@@ -10,7 +10,8 @@ class ExpenseController extends Controller
     public function expenselist()
     {
         $expense=Expense::paginate(10);
-        return view('backend.pages.expense.expenselist',compact('expense'));
+        $totalExpense = Expense::sum('amount');
+        return view('backend.pages.expense.expenselist',compact('expense','totalExpense'));
     }
 
     public function expenseform()

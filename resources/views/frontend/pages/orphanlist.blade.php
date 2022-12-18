@@ -13,7 +13,7 @@
           <img src="{{url('/uploads/',$data->image)}}" class="img-responsive" alt="...">
         </div>
         <div class="card-body text-center">            
-            <p class="card-text" style="font-size: 20px; color: #00279e;  font-weight: 800;">{{$data->name}}</p>
+            <p class="card-text" style="font-size: 20px; color: #342a6a;  font-weight: 800;">{{$data->name}}</p>
             <p class="card-text"> <strong>Age</strong>:     {{$data->age}}</p>
             <p class="card-text"> <strong>Gender</strong>:  {{$data->gender}}</p>
             <p class="card-text"> <strong>Status</strong>:  {{$data->status}}</p>

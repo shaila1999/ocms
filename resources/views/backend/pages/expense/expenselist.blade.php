@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 
-<h1>Expense List</h1>  
+<h1 class="h1">Expense List</h1>  
 @if(session()->has('message'))
         <p class="alert alert-success">{{session()->get('message')}}</p>
       @endif
@@ -10,8 +10,8 @@
         <p class="alert alert-danger">{{session()->get('error')}}</p>
     @endif
 <a href="{{route('expense.form')}}" class="btn btn-success">
-  Add Expense
-  </a>
+  Add Expense 
+</a>
 <table class="table">
   <thead>
     <tr>
@@ -35,6 +35,7 @@
    @endforeach
   </tbody>
 </table>
+<span>Total expenses : {{$totalExpense}} BDT</span>
 {{$expense->links()}}
 
 @endsection

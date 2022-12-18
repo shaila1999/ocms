@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 
-<h1 class="pt-3">Transaction confirmation</h1>
+<h1 class="h1">Transaction confirmation</h1>
 <form class="w-50" action="{{route('donation.payment')}}" method="post">
     @csrf
 

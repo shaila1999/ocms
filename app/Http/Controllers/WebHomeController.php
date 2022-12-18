@@ -77,9 +77,8 @@ class WebHomeController extends Controller
         notify()->success('Logout success');
             return redirect()->back();
 
-         
-
     }
+    
     public function orphanlist(){
         $orphan=Orphan::all();
         return view('frontend.pages.orphanlist',compact('orphan'));
@@ -150,7 +149,7 @@ class WebHomeController extends Controller
            
         ]);
          
-
+    
        
         // dd($request->all());
             Adoption::create([

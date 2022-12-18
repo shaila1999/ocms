@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 class StaffController extends Controller
 {
     public function stafflist(){
-        $list=Staff::paginate(5);
+        $list=Staff::paginate(10);
         //dd($list);  
         return view('backend.pages.staff.stafflist',compact('list'));
     }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="pt-3">Donation form</h1>
+<h1 class="h1" h1>Donation form</h1>
 <form class="w-50" action="{{route('donation.donate')}}" method="post">
 
     @if($errors->any())

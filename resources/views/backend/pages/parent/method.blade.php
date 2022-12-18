@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Parent List</h1>
+<h1 class="h1">Parent List</h1>
 
 
 <table class="table">

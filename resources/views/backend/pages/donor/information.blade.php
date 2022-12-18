@@ -5,7 +5,7 @@
 
 @section('content')
 
-<h1>Donor List</h1>  
+<h1 class="h1">Donor List</h1>  
 @if(session()->has('message'))
         <p class="alert alert-success">{{session()->get('message')}}</p>
       @endif

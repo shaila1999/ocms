@@ -14,15 +14,21 @@ class HomeController extends Controller
 {
     public function Dashboard(){
         $orphans=Orphan::all();
+
         $parents=User::where('role','parent')
         ->where('status','active')
         ->get();
+
         $donors=User::where('role','donor')
         ->where('status','active')
         ->get();
+
         $staffs=Staff::all();
+
         $total_donations=Donation::sum('amount');
+
         $total_expenses=Expense::sum('amount');
+
 
         $pending_req=User::where('status','!=','active')
         ->limit(5)

@@ -15,8 +15,14 @@
     @csrf
 
     <div class="form-group my-3">
+        <label for="name">Current Balance:{{$currentBalance}} </label>
+        
+    </div>
+
+    
+    <div class="form-group my-3">
         <label for="name">Enter Amount </label>
-        <input required name="amount" type="text" class="form-control" id="name" placeholder="Enter amount">
+        <input required name="amount" type="number" class="form-control" id="name" placeholder="Enter amount">
     </div>
 
 
@@ -24,17 +30,17 @@
     <div class="form-group my-3">
         <label for="">Expense Type</label>
         <select name="expense_type" class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
+            <option selected value="none" >Open this select menu</option>
             <option value="orphans">Orphans</option>
             <option value="staffs">Staffs</option>
             <option value="others">Others</option>
         </select>
     </div>
-
+    <input value="{{$currentBalance}}" type="hidden" name="current_balance">
 
     <div class="form-group my-3">
         <label for="">Purpose</label>
-        <input name="description" type="text" class="form-control" id="name" placeholder="Enter purpose">
+        <input required name="description" type="text" class="form-control" id="name" placeholder="Enter purpose">
     </div>
 
 

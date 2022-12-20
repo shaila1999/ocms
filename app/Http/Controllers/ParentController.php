@@ -25,7 +25,14 @@ class ParentController extends Controller
 
     public function class(Request $request){
         $request->validate([
-            'phone'=>'required'
+            'phone'=>'required',
+            'income'=>'required',
+            'n_id'=>'required',
+            'occupation'=>'required',
+            'blood_group'=>'required|not_in:none',
+            'family_member'=>'required',
+            'image'=>'required'
+
         ]);
 
 

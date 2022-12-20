@@ -1947,7 +1947,16 @@ nav a {
     font-weight: 500;
     text-transform: uppercase;
     margin: 0 25px;
-    display: inline-block
+    display: inline-block;
+    
+}
+.logo{
+    width: 300px;
+}
+.logo h1
+{  
+    font-size: 22px;
+    color:rgb(26, 4, 85)
 }
 
 @media (max-width: 767px) {
@@ -2093,11 +2102,11 @@ nav a:hover {
 }
 
 .sticky-wrapper {
-    height: 48px !important
+    height: 48px !importan
 }
 
 .banner-area {
-    background: url(../img/bannerimage.jpg) no-repeat center center/cover
+    background: url(../img/banner3.jpeg) no-repeat center center/cover
 }
 
 @media (max-width: 767px) {
@@ -2182,7 +2191,7 @@ nav a:hover {
     border: 1px solid #777;
     color: #e9ecef;
     font-weight: 500;
-    background: #cd5e10;
+    background: #1f289b;
     border: 1px solid transparent;
     text-transform: uppercase;
     border: 1px solid transparent;

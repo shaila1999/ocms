@@ -25,7 +25,8 @@ class OrphanController extends Controller
        // dd($request->all);
         $request->validate([
            'name'=>'required',
-           'age'=>'required'
+           'age'=>'required',
+           'image'=>'required'
 
            
         ]);

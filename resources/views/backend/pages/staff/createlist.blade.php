@@ -29,7 +29,7 @@
 
     <div class="form-group my-3">
         <label for="">Enter staff Address</label>
-        <input name="staff_address" type="text" class="form-control" placeholder="Enter staff address ">
+        <input required name="staff_address" type="text" class="form-control" placeholder="Enter staff address ">
 
     </div>
 
@@ -41,13 +41,13 @@
 
     <div class="form-group my-3">
         <label for="">Enter staff Email</label>
-        <input required name="staff_mail" type="text" class="form-control" placeholder="Enter staff email ">
+        <input required name="staff_mail" type="email" class="form-control" placeholder="Enter staff email ">
 
     </div>
 
     <div class="form-group my-3">
         <label for="image">Upload Image</label>
-        <input name="image" type="file" class="form-control" id="image">
+        <input required name="image" type="file" class="form-control" id="image">
     </div>
 
 

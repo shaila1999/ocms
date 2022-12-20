@@ -16,7 +16,7 @@
 
     <div class="form-group my-3">
         <label for="name">Enter Amount </label>
-        <input required name="amount" type="text" class="form-control" id="name" placeholder="Enter amount">
+        <input required name="amount" type="number" class="form-control" id="name" placeholder="Enter amount">
     </div>
 
 

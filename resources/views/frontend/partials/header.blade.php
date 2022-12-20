@@ -1,7 +1,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a href="{{route('home')}}"><img src="{{url('/frontend/img/logo.png')}}" alt=""></a>
+<a href="{{route('home')}}" class="logo"> <h1>Orphange Center</h1> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -33,6 +33,7 @@
 			</a>
       
 			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="{{route('dashboard')}}">Dashboard</a>
 				<a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
 				<a class="dropdown-item" href="{{route('user.logout')}}">Logout</a>
 

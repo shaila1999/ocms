@@ -40,7 +40,7 @@ class DonorController extends Controller
         }
        
 
-        //dd($request->all());
+        //dd($request->=user_id);
          Donor::create([
             //database column name=> input field name
             'phone_number'=>$request->phone,

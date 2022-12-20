@@ -24,12 +24,12 @@
 
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Enter Annual Income</label>
-                    <input name="income" type="text" class="form-control" placeholder="Enter annual income ">
+                    <input required name="income" type="number" class="form-control" placeholder="Enter annual income ">
                 </div>
 
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Enter National ID</label>
-                    <input name="n_id" type="text" class="form-control" placeholder="Enter national id ">
+                    <input required name="n_id" type="number" class="form-control" placeholder="Enter national id ">
                 </div>
 
                 <div class="form-group my-3">
@@ -44,12 +44,12 @@
 
                 <div class="form-group my-3 mt-3">
                     <label for=""class="font-weight-bold">Enter Occupation</label>
-                    <input name="occupation" type="text" class="form-control" placeholder="Enter occupation ">
+                    <input required name="occupation" type="text" class="form-control" placeholder="Enter occupation ">
                 </div>
 
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Enter Family Member</label>
-                    <input name="family_member" type="text" class="form-control" placeholder="Enter family member ">
+                    <input required name="family_member" type="text" class="form-control" placeholder="Enter family member ">
                 </div>
 
                 <div class="form-group my-3">
@@ -63,8 +63,8 @@
 
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Blood group</label>
-                    <select name="blood_group" class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                    <select required name="blood_group" class="form-select" aria-label="Default select example">
+                        <option selected value="none" > Open this select menu</option>
                         <option value="o+">O+</option>
                         <option value="o-">O-</option>
                         <option value="a+">A+</option>
@@ -94,7 +94,7 @@
 
                 <div class="form-group my-3">
                     <label for="image"class="font-weight-bold">Upload Image</label>
-                    <input name="image" type="file" class="form-control" id="image">
+                    <input required name="image" type="file" class="form-control" id="image">
                 </div>
 
                 <button type="submit" class="btn btn-info">Submit</button>

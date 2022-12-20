@@ -21,8 +21,9 @@ class StaffController extends Controller
     public function care(Request $request)
     {
         $request->validate([
-            'staff_name'=>'required|unique:staff,name',
+            'staff_name'=>'required',
             'staff_phone'=>'required',
+            'staff_address'=>'required',
             'staff_mail'=>'required',
             'image'=>'required'
            

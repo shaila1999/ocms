@@ -13,7 +13,7 @@
     @endif
 
 <a href="{{route('staff.create')}}" class="btn btn-primary">
-Create Staff
+Add Staff
 </a>
 <table class="table">
   <thead>

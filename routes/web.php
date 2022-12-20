@@ -54,7 +54,7 @@ Route::post('/parent/class',[ParentController::class,'class'])->name('parent.cla
 
 //Route::post('/adoption/form',[AdoptionController::class,'adoptform'])->name('adopt.form');
 
-Route::get('/frontend/donate',[DonateController::class,'donateview'])->name('donate.view');
+Route::get('/frontend/donate',[DonateController::class,'donateview'])->name('donate.view'); //frontend
 Route::post('/frontend/donate/now',[DonateController::class,'donatenow'])->name('donate.now');
 
 

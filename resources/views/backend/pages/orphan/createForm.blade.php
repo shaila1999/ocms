@@ -48,7 +48,7 @@
 
     <div class="form-group my-3">
         <label for="image">Upload Image</label>
-        <input name="image" type="file" class="form-control" id="image">
+        <input required name="image" type="file" class="form-control" id="image">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

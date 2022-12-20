@@ -54,15 +54,22 @@ class WebHomeController extends Controller
         $credentials=$request->except('_token');
         if(auth()->attempt($credentials))
         {
-            if(auth()->user()->status!='active'){
+            if(auth()->user()->role!='admin'){
+                if(auth()->user()->status!='active'){
                
-                notify()->error('Account Inactive.Contact With Admin');
-                auth()->logout();     
+                    notify()->error('Account Inactive.Contact With Admin');
+                    auth()->logout();     
+                }
+                else
+                {
+                    notify()->success('Login success');
+                }
             }
-            else
-            {
-                notify()->success('Login success');
+            else{
+                notify()->error('Admin can\'t Login');
+                auth()->logout(); 
             }
+            
             
             return redirect()->back();
         }

@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-start" style="height: 915px;">
             <div class="banner-content col-lg-9 col-md-12">
-                <h1 style="font-size: 40px; color:#35ed65">
+                <h1 style="font-size: 40px; color:#3bc138;">
                     Your Donation <br>
                     is Others Inspiration
                 </h1>
@@ -133,7 +133,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8  header-text">
-                <h1 style="font-size: 40px;">Our Volunteers</h1>
+                <h1 style="font-size: 40px;">Our Staffs</h1>
 
             </div>
         </div>

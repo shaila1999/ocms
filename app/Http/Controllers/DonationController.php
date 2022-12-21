@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class DonationController extends Controller
 {
     public function donate(){
-        $donate=Donation::paginate(10);
+        $donate=Donation::orderBy('id','DESC')->paginate(10);
         return view('backend.pages.donation.donate',compact('donate'));
     }
         

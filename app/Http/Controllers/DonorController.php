@@ -25,7 +25,8 @@ class DonorController extends Controller
     public function info(Request $request)
     {
         $request->validate([ 
-            'phone'=>'required',
+            'phone'=>'required|numeric|digits:11',
+            'gender'=>'required|not_in:none',
             'image'=>'required'
            
         ]);

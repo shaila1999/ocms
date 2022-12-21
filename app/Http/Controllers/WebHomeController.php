@@ -21,7 +21,15 @@ class WebHomeController extends Controller
 
 
     public function registration(Request $request){
-        
+
+        $request->validate([
+            'donor_name'=>'required',
+            'donor_email'=>'required|email',
+            'address'=>'required',
+            'donor_password'=>'required'
+
+       
+        ]);
        
         $user=User::create([
             'name'=>$request->donor_name,
@@ -57,7 +65,7 @@ class WebHomeController extends Controller
             if(auth()->user()->role!='admin'){
                 if(auth()->user()->status!='active'){
                
-                    notify()->error('Account Inactive.Contact With Admin');
+                    notify()->error('Account Inactive.Need to Admin Permission');
                     auth()->logout();     
                 }
                 else
@@ -140,21 +148,15 @@ class WebHomeController extends Controller
     }*/
 
 
-    public function adoptnow($orphan_id){
-        $orphan = Orphan::find($orphan_id);
-        return view ('frontend.pages.adoptnow',compact('orphan'));
-    }
-
+    
 
     
     public function adoptorphan(Request $request,$orphan_id)
     {
         $orphan = Orphan::find($orphan_id);
-        $request->validate([
-            
-            'status'=>'required'
+       
            
-        ]);
+      
          
     
        
@@ -163,11 +165,11 @@ class WebHomeController extends Controller
             //database column name=> input field name
             'parent_id'=>auth()->user()->id,
             'orphan_id'=>$orphan->id,
-            'status'=>$request->status
+            'status'=>'pending'
 
 
         ]);
-        notify()->error('Request Pending,Contact With Admin.');
+        notify()->success('Request Pending,Contact With Admin.');
         return redirect()->back();
     }  
     

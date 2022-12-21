@@ -47,6 +47,7 @@
       <th scope="col">Expense Type</th>
       <th scope="col"> Amount</th>
       <th scope="col"> Purpose</th>
+      <th scope="col"> Action</th>
       
     </tr>
   </thead>
@@ -57,6 +58,12 @@
       <td>{{($data->type)}}</td> 
       <td>{{($data->amount)}}</td>
       <td>{{($data->purpose)}}</td>
+
+      <td>
+                <a href="{{route('expense.edit',$data->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('admin.expense.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                
+      </td>
       
       
     </tr> 

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 class StaffController extends Controller
 {
     public function stafflist(){
-        $list=Staff::paginate(10);
+        $list=Staff::orderBy('id','DESC')->paginate(10);
         //dd($list);  
         return view('backend.pages.staff.stafflist',compact('list'));
     }
@@ -22,7 +22,7 @@ class StaffController extends Controller
     {
         $request->validate([
             'staff_name'=>'required',
-            'staff_phone'=>'required',
+            'staff_phone'=>'required|numeric|digits:11',
             'staff_address'=>'required',
             'staff_mail'=>'required',
             'image'=>'required'
@@ -92,7 +92,14 @@ class StaffController extends Controller
             $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('/uploads',$fileName);
         }
-
+        $request->validate([
+            'staff_name'=>'required',
+            'staff_phone'=>'required|numeric|digits:11',
+            'staff_address'=>'required',
+            'staff_mail'=>'required',
+            'image'=>'required'
+           
+        ]);
 
 
         //dd($request->all());

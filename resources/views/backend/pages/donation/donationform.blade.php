@@ -24,7 +24,7 @@
     <div class="form-group my-3">
         <label for="">Donation Type</label>
         <select name="donation_type" class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
+            <option selected value="none">Open this select menu</option>
             <option value="food">Food</option>
             <option value="clothes">Clothes</option>
             <option value="medicine">Medicine</option>
@@ -44,7 +44,7 @@
     <div class="form-group my-3">
         <label for="">Payment Option</label>
         <select name="payment" class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
+            <option selected value="none">Open this select menu</option>
             <option value="bkash">Bkash</option>
             <option value="nagad">Nagad</option>
             <option value="rocket">Rocket</option>

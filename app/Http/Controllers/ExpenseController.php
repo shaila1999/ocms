@@ -11,7 +11,7 @@ class ExpenseController extends Controller
 {
     public function expenselist()
     {
-        $expense=Expense::orderBy('id','desc')->paginate(10);
+        $expense=Expense::orderBy('id','DESC')->paginate(10);
         $totalExpense = Expense::sum('amount');
         $totalDonation = Donation::sum('amount');
 
@@ -56,9 +56,43 @@ class ExpenseController extends Controller
 
         return redirect()->route('expense.list')->with('message','Expense Noted');
 
+
+    }
+    public function deleteExpense($expense_id) 
+    {
+        Expense::findOrFail($expense_id)->delete();
+        return redirect()->back()->with('message','expense deleted successfully.');
+    } 
+
+    public function edit($expense_id)
+    {
+        $expense=Expense::find($expense_id);
+    
+        return view('backend.pages.expense.edit',compact('expense'));
     }
 
 
+
+
+    public function update(Request $request,$expense_id)
+    {
+      
+        $expense=Expense::find($expense_id);
+        
+
+
+        //dd($request->all());
+        $expense->update([
+            'amount'=>$request->amount,
+            'type'=>$request->expense_type,
+            'purpose'=>$request->description,
+            
+
+        ]);
+        return redirect()->route('expense.list')->with('message','Update seccesfully');
+
+    
+    }
 
     
 

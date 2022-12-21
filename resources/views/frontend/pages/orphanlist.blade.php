@@ -19,7 +19,7 @@
             <p class="card-text"> <strong>Status</strong>:  {{$data->status}}</p>
             
               @if($data->status != "adopt")
-                <a href="{{route('adopt.now',$data->id)}}" class="btn btn-primary">Adopt Now</a>   
+                <a href="{{route('adopt.orphan',$data->id)}}" class="btn btn-primary">Adopt Now</a>   
               @else
               <a disabled class="btn btn-success text-white">Already adopted</a>          
               @endif

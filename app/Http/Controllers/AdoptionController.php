@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Adoption;
+use App\Models\Orphan;
 use App\Models\Parents;
 use Illuminate\Http\Request;
 
 class AdoptionController extends Controller
 {
     public function adopt(){
-        $adopt=Adoption:: paginate(10);
+        $adopt=Adoption::orderBy('id','DESC')->paginate(10);
 
         return view('backend.pages.adoption.adoptlist',compact('adopt'));
     }
@@ -41,9 +42,14 @@ class AdoptionController extends Controller
 
 
     public function approve($id){
-            Adoption::find($id)->update([
-                'status'=>'approved'
-            ]);
+      $adoptionid=explode(':',$id)[0]; 
+      $orpanid=explode(':',$id)[1]; 
+        Adoption::find($adoptionid)->update([
+            'status'=>'approved'
+        ]);
+        Orphan::find($orpanid)->update([
+            'status'=>'adopt'
+        ]);
             return redirect()->route('adoptions')->with('message','Adoption completed');
     }
         

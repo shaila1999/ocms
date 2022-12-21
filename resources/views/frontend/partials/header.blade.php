@@ -12,10 +12,13 @@
 	 
       <li class="nav-item dropdown">
 			  <a class="nav-link dropdown-toggle text-bold text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
 			  Members
+        
         </a>
 
 			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        
           <a class="dropdown-item" href="{{route('parent.form')}}">Parents</a>
           <a class="dropdown-item" href="{{route('donor.list')}}">Donors</a>
         </div>
@@ -116,12 +119,12 @@
       @csrf
         <div class="form-group">
         <label for="name">Enter Your Name:</label>
-        <input name="donor_name" type="text" class="form-control" id="name"  placeholder="Enter name">
+        <input required name="donor_name" type="text" class="form-control" id="name"  placeholder="Enter name">
         </div>
 
         <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input name="donor_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <input required name="donor_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
 
 		<div class="form-group">
@@ -134,13 +137,13 @@
 
 		<div class="form-group">
         <label for="exampleInputEmail1">Address</label>
-        <input name="address" type="text" class="form-control"  placeholder="address">
+        <input required name="address" type="text" class="form-control"  placeholder="address">
         </div>
         
 
         <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input name="donor_password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input required name="donor_password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
 
         <button type="submit" class="btn btn-primary">Registration</button>

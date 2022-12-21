@@ -13,9 +13,12 @@ class ParentController extends Controller
         $name = DB::table('users')
             ->join('parents', 'users.id', '=', 'parents.user_id')
             ->select('users.*', 'parents.*')
+            ->orderBy('users.id' ,'DESC')
             //->where('users.role', '=', 'parents')
             ->get();
-       //$name=Parents::paginate(5);
+
+
+       
        //dd($name);
         return view('backend.pages.parent.method',compact('name'));
     }
@@ -25,10 +28,12 @@ class ParentController extends Controller
 
     public function class(Request $request){
         $request->validate([
-            'phone'=>'required',
+            'phone'=>'required|numeric|digits:11',
             'income'=>'required',
             'n_id'=>'required',
             'occupation'=>'required',
+            'gender'=>'required|not_in:none',
+            'marital_status'=>'required|not_in:none',
             'blood_group'=>'required|not_in:none',
             'family_member'=>'required',
             'image'=>'required'

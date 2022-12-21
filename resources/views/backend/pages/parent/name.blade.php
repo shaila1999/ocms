@@ -35,7 +35,7 @@
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Gender</label>
                     <select name="gender" class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option selected value="none">Open this select menu</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="others">Others</option>
@@ -49,13 +49,13 @@
 
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Enter Family Member</label>
-                    <input required name="family_member" type="text" class="form-control" placeholder="Enter family member ">
+                    <input required name="family_member" type="number" class="form-control" placeholder="Enter family member ">
                 </div>
 
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Marital Status</label>
                     <select name="marital_status" class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option selected value="none">Open this select menu</option>
                         <option value="married">Married</option>
                         <option value="unmarried">Unmarried</option>
                     </select>

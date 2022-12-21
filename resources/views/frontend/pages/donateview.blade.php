@@ -18,13 +18,13 @@
 
                 <div class="form-group my-3">
                     <label for="name" class="font-weight-bold">Enter Amount</label>
-                    <input required name="amount" type="text" class="form-control" id="name" placeholder="Enter amount">
+                    <input required name="amount" type="number" class="form-control" id="name" placeholder="Enter amount">
                 </div>
 
                 <div class="form-group my-3">
                     <label for="" class="font-weight-bold">Donation Type</label>
                     <select name="donation_type" class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option selected value="none">Open this select menu</option>
                         <option value="food">Food</option>
                         <option value="clothes">Clothes</option>
                         <option value="medicine">Medicine</option>
@@ -46,7 +46,7 @@
                 <div class="form-group my-3">
                     <label for="" class="font-weight-bold">Payment Option</label>
                     <select name="payment" class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option selected value="none">Open this select menu</option>
                         <option value="bkash">Bkash</option>
                         <option value="nagad">Nagad</option>
                         <option value="rocket">Rocket</option>
@@ -68,19 +68,19 @@
 
                 <div class="form-group">
                     <label for="name"class="font-weight-bold">Enter Donor Name:</label>
-                    <input name="donor_name" type="text" class="form-control" id="name" placeholder="Enter name">
+                    <input required name="donor_name" type="text" class="form-control" id="name" placeholder="Enter name">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1"class="font-weight-bold">Email address</label>
-                    <input name="donor_email" type="email" class="form-control" id="exampleInputEmail1"
+                    <input required name="donor_email" type="email" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
 
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Gender</label>
                     <select name="gender" class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option selected value="none">Open this select menu</option>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                         <option value="others">others</option>
@@ -90,7 +90,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail1"class="font-weight-bold">Address</label>
-                    <input name="address" type="text" class="form-control" placeholder="address">
+                    <input required name="address" type="text" class="form-control" placeholder="address">
                 </div>
 
                 <div class="form-group my-3">
@@ -102,7 +102,7 @@
              
                 <div class="form-group my-3">
                     <label for="image"class="font-weight-bold">Upload Image</label>
-                    <input name="image" type="file" class="form-control" id="image">
+                    <input required name="image" type="file" class="form-control" id="image">
                 </div>
 
                 <input type="hidden" value="donor" name="role">

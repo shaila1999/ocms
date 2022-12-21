@@ -1956,7 +1956,7 @@ nav a {
 .logo h1
 {  
     font-size: 22px;
-    color:rgb(26, 4, 85)
+    color:rgb(5 2 24);
 }
 
 @media (max-width: 767px) {
@@ -2106,7 +2106,7 @@ nav a:hover {
 }
 
 .banner-area {
-    background: url(../img/banner3.jpeg) no-repeat center center/cover
+    background: url(../img/b2.png) no-repeat center center/cover
 }
 
 @media (max-width: 767px) {

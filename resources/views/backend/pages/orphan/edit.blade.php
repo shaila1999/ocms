@@ -5,7 +5,7 @@
 @section('content')
 
 
-<h1>Update Orphan</h1>
+<h1 class="h1 mt-3" >Update Orphan</h1>
 <form action="{{route('orphan.update',$orphan->id)}}" method="post" enctype="multipart/form-data">
 @method('put')
 
@@ -26,14 +26,14 @@
         
         <div class="form-group my-3">
             <label for="">Enter Orphan Age</label>
-            <input value="{{$orphan->age}}" name="age" type="number" class="form-control"  placeholder="Enter orphan age ">
+            <input required value="{{$orphan->age}}" name="age" type="number" class="form-control"  placeholder="Enter orphan age ">
 
         </div>
 
         <div class="form-group my-3">
             <label for="">Gender</label>
          <select name="gender" class="form-select" aria-label="Default select example">
-           <option selected>Open this select menu</option>
+           <option selected value="none">Open this select menu</option>
            <option value="male" {{($orphan->gender=='male')?'selected':''}}>Male</option>
            <option value="female" {{($orphan->gender=='female')?'selected':''}}>Female</option>
            <option value="others" {{($orphan->gender=='others')?'selected':''}}>Others</option>
@@ -51,7 +51,7 @@
 
          <div class="form-group my-3">
             <label for="image">Upload Image</label>
-            <input name="image"  type="file" class="form-control" id="image">
+            <input required name="image"  type="file" class="form-control" id="image">
         </div>
 
 

@@ -33,7 +33,7 @@ class UserController extends Controller
     }
 
     public function userlist(){
-        $user=User::paginate(10);
+        $user=User::orderBy('id','DESC')->paginate(10);
         return view('backend.pages.user.userlist',compact('user'));
        
     }

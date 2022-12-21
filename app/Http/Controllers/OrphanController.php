@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 class OrphanController extends Controller
 {
     public function center(){
-        $orphan=Orphan::paginate(10);
+        $orphan=Orphan::orderBy('id','DESC')->paginate(10);
         return view('backend.pages.orphan.center',compact('orphan'));
     }
 
@@ -26,6 +26,7 @@ class OrphanController extends Controller
         $request->validate([
            'name'=>'required',
            'age'=>'required',
+           'gender'=>'required|not_in:none',
            'image'=>'required'
 
            
@@ -94,6 +95,16 @@ class OrphanController extends Controller
             $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('/uploads',$fileName);
         }
+        $request->validate([
+            'name'=>'required',
+            'age'=>'required',
+            'gender'=>'required|not_in:none',
+            'image'=>'required'
+ 
+            
+         ]);
+          
+ 
 
 
         //dd($request->all());

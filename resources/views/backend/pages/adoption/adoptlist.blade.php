@@ -34,8 +34,12 @@
             <td>{{($data->status)}}</td>
 
             <td>
-                <a href="{{route('adoption.approve',$data->id)}}" class="btn btn-primary">Approve</a>
+                @if($data->status!='approved')
+                <a href="{{route('adoption.approve',$data->id.':'.$data->orphan_id)}}" class="btn btn-primary">Approve</a>
+                @if($data->status!='rejected')
                 <a href="{{route('adoption.reject',$data->id)}}" class="btn btn-danger">Reject</a>
+                @endif
+                @endif
             </td>
         </tr>
         @endforeach

@@ -9,9 +9,7 @@
     @if(session()->has('error'))
         <p class="alert alert-danger">{{session()->get('error')}}</p>
     @endif
-<a href="{{route('donation.form')}}" class="btn btn-success">
-  Donate Now
-  </a>
+
 <table class="table">
   <thead>
     <tr>

@@ -65,8 +65,8 @@ Route::post('/frontend/donate/now',[DonateController::class,'donatenow'])->name(
 
 Route::group(['middleware'=>'auth'],function(){
 
-   Route::get('/frontend/adopt/now/{orphan_id}',[WebHomeController::class,'adoptnow'])->name('adopt.now');
-   Route::post('/frontend/adopt/orphan/{orphan_id}',[WebHomeController::class,'adoptorphan'])->name('adopt.orphan');
+   //Route::get('/frontend/adopt/now/{orphan_id}',[WebHomeController::class,'adoptorphan'])->name('adopt.now');
+   Route::get('/frontend/adopt/orphan/{orphan_id}',[WebHomeController::class,'adoptorphan'])->name('adopt.orphan');
 
    
    
@@ -160,12 +160,16 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
       Route::get('/donors',[DonorController::class,'information'])->name('donors');
       
 
-
+      //for expense
       Route::get('/expenses',[ExpenseController::class,'expenselist'])->name('expense.list');
       Route::get('/expense.form',[ExpenseController::class,'expenseform'])->name('expense.form');
       Route::post('/expense.details',[ExpenseController::class,'details'])->name('expense.details');
-
-
+     //expense crud
+      Route::get('/expense/delete/{expense_id}',[ExpenseController::class,'deleteExpense'])->name('admin.expense.delete');
+      Route::get('/expense/edit/{expense_id}',[ExpenseController::class,'edit'])->name('expense.edit');
+      Route::put('/expense/update/{expense_id}',[ExpenseController::class,'update'])->name('expense.update');
+   
+      
       //report generates for donation
       Route::get('/report',[DonationController::class,'report'])->name('donation.report');
       Route::get('/report/search',[DonationController::class,'reportSearch'])->name('donation.report.search');

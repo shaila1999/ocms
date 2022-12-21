@@ -21,14 +21,14 @@
                     @csrf
                     <div class="row mt-2">
                         <div class="col-md-12"><label class="labels">Name</label>
-                            <input name="user_name" type="text" class="form-control" placeholder="Name"
+                            <input required name="user_name" type="text" class="form-control" placeholder="Name"
                                 value="{{auth()->user()->name}}"></div>
 
                     </div>
                     <div class="row mt-3">
 
-                        <div class="col-md-12"><label class="labels">Address </label><input name="user_address"
-                                type="text" class="form-control" placeholder="enter address "
+                        <div class="col-md-12"><label class="labels">Address </label>
+                        <input required name="user_address"type="text" class="form-control" placeholder="enter address "
                                 value="{{auth()->user()->address}}"></div>
                         <div class="col-md-12">
 

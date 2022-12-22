@@ -24,6 +24,7 @@ class StaffController extends Controller
             'staff_name'=>'required',
             'staff_phone'=>'required|numeric|digits:11',
             'staff_address'=>'required',
+            'designation'=>'required',
             'staff_mail'=>'required',
             'image'=>'required'
            
@@ -44,6 +45,7 @@ class StaffController extends Controller
             //database column name=> input field name
             'name'=>$request->staff_name,
             'address'=>$request->staff_address,
+            'designation'=>$request->designation,
             'phone_number'=>$request->staff_phone,
             'email'=>$request->staff_mail,
             //'image'=>$request->image,
@@ -96,6 +98,7 @@ class StaffController extends Controller
             'staff_name'=>'required',
             'staff_phone'=>'required|numeric|digits:11',
             'staff_address'=>'required',
+            'designation'=>'required',
             'staff_mail'=>'required',
             'image'=>'required'
            
@@ -107,6 +110,7 @@ class StaffController extends Controller
             //database column name=> input field name
             'name'=>$request->staff_name,
             'address'=>$request->staff_address,
+            'designation'=>$request->designation,
             'phone_number'=>$request->staff_phone,
             'email'=>$request->staff_mail,
             //'image'=>$request->image,

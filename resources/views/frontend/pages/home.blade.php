@@ -110,18 +110,17 @@
     <div class="container-fluid">
         <div class="row d-flex justify-content-end align-items-center">
             <div class="col-lg-6 col-md-12 about-left no-padding">
-                <img class="img-fluid" src="{{url('/frontend/img/about-img.jpg')}}" alt="">
+                <img class="img-fluid" src="{{url('/frontend/img/b2.png')}}" alt="">
             </div>
             <div class="col-lg-6 col-md-12 about-right">
                 <h1>A very Lovely Welcome <br>
                     to our Company</h1>
                 <p>
-                    inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
-                    standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the
-                    job is beyond reproach. inappropriate behavior is often laughed.
+                    An orphanage is a residential institution, total institution or group home, devoted to the care of
+                    orphans and children who, for various reasons, cannot be cared for by their biological families. The
+                    parents may be deceased, absent, or abusive.
                 </p>
-                <button class="primary-btn mt-20 text-uppercase ">learn more<span
-                        class="lnr lnr-arrow-right"></span></button>
+               
             </div>
         </div>
     </div>

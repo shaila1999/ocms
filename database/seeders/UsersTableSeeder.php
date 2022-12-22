@@ -23,7 +23,8 @@ class UsersTableSeeder extends Seeder
             'role'=>'admin',
             'email'=>'admin@gmail.com',
             'password'=>bcrypt('12345'),
-            'status'=>'active'
+            'status'=>'active',
+            "image" => "admin.png"
 
             
         ]);

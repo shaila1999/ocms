@@ -12,6 +12,10 @@
     @endforeach
     @endif
 
+    @if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+    @endif
+
 
     @csrf
 
@@ -30,6 +34,12 @@
     <div class="form-group my-3">
         <label for="">Enter staff Address</label>
         <input required name="staff_address" type="text" class="form-control" placeholder="Enter staff address ">
+
+    </div>
+
+    <div class="form-group my-3">
+        <label for="">Enter staff Designation</label>
+        <input required name="designation" type="text" class="form-control" placeholder="Enter staff designation ">
 
     </div>
 

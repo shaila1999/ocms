@@ -22,6 +22,7 @@ Add Staff
       <th scope="col">Staff Name</th>
       <th scope="col">Staff Address</th>
       <th scope="col">Staff Phone_number</th>
+      <th scope="col">Staff Designation</th>
       <th scope="col">Staff Image</th>
       <th scope="col">Action</th>
 
@@ -34,6 +35,7 @@ Add Staff
       <td>{{($data->name)}}</td>
       <td>{{($data->address)}}</td>
       <td>{{($data->phone_number)}}</td>
+      <td>{{($data->designation)}}</td>
       <td>
                
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Adoption;
+use App\Models\Donor;
 use App\Models\Orphan;
 use App\Models\Parents;
 use App\Models\Staff;
@@ -27,9 +28,9 @@ class WebHomeController extends Controller
             'donor_email'=>'required|email',
             'address'=>'required',
             'donor_password'=>'required'
+        ]);
 
        
-        ]);
        
         $user=User::create([
             'name'=>$request->donor_name,
@@ -37,7 +38,8 @@ class WebHomeController extends Controller
             'password'=> bcrypt($request->donor_password),
             'role'=>$request->role,
             'status'=>'inactive',
-            'address'=>$request->address
+            'address'=>$request->address,
+            
          ]);
          
         if($user->role=='donor'){
@@ -179,7 +181,17 @@ class WebHomeController extends Controller
 
       public function  profile (){
 
-        return view('frontend.pages.profile');
+        $donor = null;
+        if(auth()->user()->role == "donor"){
+
+            $donor = Donor::where("user_id",auth()->user()->id)->first();
+        }
+        elseif(auth()->user()->role == "parent"){
+
+            $donor = Parents::where("user_id",auth()->user()->id)->first();
+        }
+        // dd($donor);
+        return view('frontend.pages.profile',compact('donor'));
     }
 
         public function updateProfile(Request $request)

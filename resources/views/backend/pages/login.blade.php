@@ -10,7 +10,7 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <img src="{{url('/frontend/img/download.png')}}" id="icon" alt="User Icon" />
+            <img src="{{url('/uploads/admin.png')}}" id="icon" alt="User Icon" />
         </div>
 
         <!-- Login Form -->

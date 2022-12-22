@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('phone_number',20);
             $table->string('gender',20);
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }

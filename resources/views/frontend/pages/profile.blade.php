@@ -1,12 +1,16 @@
 @extends('frontend.master')
 
 @section('content')
+
 <div class="container rounded bg-white mt-5 mb-5">
+    
     <div class="row">
+        
         <div class="col-md-4 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img class="rounded-circle mt-5" width="150px"
-                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    src="{{url('uploads',(auth()->user()->role == 'admin' ? auth()->user()->image: $donor?->image))}}">
+                    
                 <span class="font-weight-bold">{{auth()->user()->name}}</span><span
                     class="text-black-50">{{auth()->user()->email}}</span><span> </span></div>
         </div>
@@ -43,7 +47,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12"><label class="labels">Email ID</label><input readonly type="text"
+                        <div class="col-md-12"><label class="labels">Email ID</label><input readonly type="email"
                                 class="form-control" placeholder="enter email id" value="{{auth()->user()->email}}">
                         </div>
                     </div>

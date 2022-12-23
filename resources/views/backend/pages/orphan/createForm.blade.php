@@ -29,8 +29,8 @@
     <div class="form-group my-3">
         <label for="">Orphan Status</label>
         <select name="status" id="" class="form-select">
-            <option value="adopt">Adopt</option>
             <option value="not adopt">Not adopt</option>
+            <option value="adopt">Adopt</option>
         </select>
     </div>
 

@@ -57,7 +57,7 @@
 
     <div class="form-group my-3">
         <label for="name">Enter Payment Phone Number</label>
-        <input required name="phone" type="number" class="form-control" id="name"
+        <input required name="phone" type="text" class="form-control" id="name"
             placeholder="Enter payment phone number">
     </div>
 

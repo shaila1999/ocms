@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adoption;
 use App\Models\Donation;
 use App\Models\Expense;
 use App\Models\Orphan;
@@ -49,6 +50,32 @@ class HomeController extends Controller
             ->get();
 
         $expenses=Expense::paginate(5);
+
+
+
+
+        if(auth()->user()->role=='donor'){
+            $donation=DB::table('donations')
+            ->where('user_id',auth()->user()->id)
+            ->get();
+
+            $total_donations=Donation::where('user_id',auth()->user()->id)->sum('amount');
+
+        return view('backend.pages.dashboard',compact('donation','total_donations'));
+            
+        }
+        
+
+        if(auth()->user()->role=='parent'){
+            $adoption=DB::table('adoptions')
+            ->where('parent_id',auth()->user()->id)
+            ->get();
+
+            $total_adoption=Adoption::where([['parent_id',auth()->user()->id],['status','=','approved']])->count('id');
+
+        return view('backend.pages.dashboard',compact('adoption','total_adoption'));
+            
+        }
         
         
         //dd($parents);

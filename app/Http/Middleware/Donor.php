@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Admincheck
+class Donor
 {
     /**
      * Handle an incoming request.
@@ -16,13 +16,10 @@ class Admincheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->role == 'admin' OR auth()->user()->role == 'donor'  OR auth()->user()->role == 'parent'){
+        if(auth()->user()->role == 'donor'){
             return $next($request);
         }
 //        notify()->error('Your are not admin');
         return redirect()->route('home');
     }
- }
-
-    
-
+}

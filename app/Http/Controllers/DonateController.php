@@ -18,6 +18,24 @@ class DonateController extends Controller
     public function donatenow(Request $request){
 
 
+        $request->validate([
+            'donor_name'=>'required',
+            'donor_email'=>'required',
+            'donor_password'=>'required',
+            'donation_type'=>'required|not_in:none',
+            'address'=>'required',
+            'phone'=>'required|numeric|digits:11',
+            'amount'=>'required',
+            'payment'=>'required|not_in:none',
+            'payment_phone'=>'required|numeric|digits:11',
+            'transaction_id'=>'required', 
+            'gender'=>'required|not_in:none',
+            'image'=>'required'
+ 
+            
+         ]);
+
+
         
 
             $user=User::create([

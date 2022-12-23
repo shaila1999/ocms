@@ -14,7 +14,9 @@ class DonorController extends Controller
         $donate = DB::table('users')
             ->join('donors', 'users.id', '=', 'donors.user_id')
             ->select('users.*', 'donors.*')
-            ->get();
+            ->orderBy('users.id' ,'DESC')
+            ->paginate(10);
+            
             //dd($donate);
         //$donate=Donor::paginate(5);
         return view('backend.pages.donor.information',compact('donate'));

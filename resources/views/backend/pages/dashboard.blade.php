@@ -6,7 +6,7 @@
     <h1 class="h1">Welcome to {{auth()->user()->name}}</h1>
 
     <div class="row">
-
+    @if(auth()->user()->role=='admin')
         <div class="col-xl-3 col-md-6">
             <div class="card bg-primary text-white mb-4">
                 <div class="card-body">Total Orphans</div>
@@ -34,6 +34,7 @@
                 </div>
             </div>
         </div>
+    
         <div class="col-xl-3 col-md-6">
             <div class="card bg-danger text-white mb-4">
                 <div class="card-body">Total Donation</div>
@@ -43,6 +44,7 @@
                 </div>
             </div>
         </div>
+    
         <div class="col-xl-3 col-md-6">
             <div class="card bg-dark text-white mb-4">
                 <div class="card-body">Total Staffs</div>
@@ -72,11 +74,48 @@
                 </div>
             </div>
         </div>
+    @endif
+    @if(auth()->user()->role=='donor')
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">Total Donation</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link">{{$total_donations}}</a>
+                        <div class="small text-white"></div>
+                    </div>
+                </div>
+            </div>
+       
 
+        <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <a class="btn btn-success" href="{{route('donation.form')}}">Donate Now</a>
+                </div>
+        </div>
+        
+    @endif
+
+    @if(auth()->user()->role=='parent')
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Adoption</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link">{{$total_adoption}}</a>
+                    <div class="small text-white"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <a class="btn btn-success" href="{{route('orphan.list')}}">Adopt Now</a>
+                </div>
+            </div>
+        </div>
+    @endif
     </div>
-
     
     <div class="row">
+    @if(auth()->user()->role=='admin')
         <div class="col-md-6">
             <h4 class="h2">Pending Request</h4>
             <table class="table table-striped table-dark">
@@ -183,8 +222,69 @@
                 </tbody>
             </table>
         </div>
+    @endif 
+    @if(auth()->user()->role=='donor')
+    <div class="col-md-12">
+            <h4 class="h2">Recent Donation</h4>
+            <table class="table table-info">
+                <thead>
+                    <tr>
+                        <th scope="col">Sl</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Purpose</th>
+                        <th scope="col">Payment Method</th>
+                        <th scope="col">Transaction Id</th>
+                        <th scope="col">Amount</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($donation as $key=> $data)
+                    <tr>
+                        <th scope="row">{{++$key}}</th>
+                        <td>{{($data->created_at)}}</td>
+                        <td>{{($data->details)}}</td>
+                        <td>{{($data->payment_method)}}</td>
+                        <td>{{($data->transaction_id)}}</td>
+                        <td>{{($data->amount)}}</td>
+                       
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
+    @endif
 
+
+    @if(auth()->user()->role=='parent')
+    <div class="col-md-12">
+            <h4 class="h2">Adoption List</h4>
+            <table class="table table-info">
+                <thead>
+                    <tr>
+                        <th scope="col">Sl</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Orphan Id</th>
+                        <th scope="col">Status</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($adoption as $key=> $data)
+                    <tr>
+                        <th scope="row">{{++$key}}</th>
+                        <td>{{($data->created_at)}}</td>
+                        <td>{{($data->orphan_id)}}</td>
+                        <td>{{($data->status)}}</td>
+                        
+                       
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @endif
 
 </div>
 @endsection

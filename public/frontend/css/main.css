@@ -2106,7 +2106,7 @@ nav a:hover {
 }
 
 .banner-area {
-    background: url(../img/b2.png) no-repeat center center/cover
+    background: url(../img/bannerimg.jpg) no-repeat center center/cover
 }
 
 @media (max-width: 767px) {
@@ -2191,7 +2191,7 @@ nav a:hover {
     border: 1px solid #777;
     color: #e9ecef;
     font-weight: 500;
-    background: #1f289b;
+    background: #1dbd31;
     border: 1px solid transparent;
     text-transform: uppercase;
     border: 1px solid transparent;

@@ -9,11 +9,18 @@
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-start" style="height: 915px;">
             <div class="banner-content col-lg-9 col-md-12">
-                <h1 style="font-size: 40px; color:#3bc138;">
+                <h1 style="font-size: 40px; color:#d8e0e9;">
                     Your Donation <br>
                     is Others Inspiration
                 </h1>
+                @if(isset(auth()->user()->role) && auth()->user()->role=='donor')
+                <a href="{{route('donation.form')}}" class="head-btn btn text-uppercase">Donate Now</a>
+                @else
                 <a href="{{route('donate.view')}}" class="head-btn btn text-uppercase">Donate Now</a>
+                @endif
+                @if(isset(auth()->user()->role) && auth()->user()->role=='parent')
+                <a href="{{route('orphan.list')}}" class="head-btn btn text-uppercase">Adopt Now</a>
+                @endif
             </div>
         </div>
     </div>
@@ -113,14 +120,14 @@
                 <img class="img-fluid" src="{{url('/frontend/img/b2.png')}}" alt="">
             </div>
             <div class="col-lg-6 col-md-12 about-right">
-                <h1>A very Lovely Welcome <br>
+                <h1 style="color: #12ef89;">A very Lovely Welcome <br>
                     to our Company</h1>
-                <p>
-                    An orphanage is a residential institution, total institution or group home, devoted to the care of
-                    orphans and children who, for various reasons, cannot be cared for by their biological families. The
-                    parents may be deceased, absent, or abusive.
+                <p class="text-white">
+                    At My Home, orphans are provided shelter, food,clothing, education, health, sports and all other facilities of life with love, affection and care.
+                    Our mission is to work in the fields of health, education and social welfare services, especiallyfor the neglected and low-income group of our society, raise their standards of living and help them
+                    to become a productive and honorable part of the society.
                 </p>
-               
+
             </div>
         </div>
     </div>

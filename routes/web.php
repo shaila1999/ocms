@@ -14,6 +14,8 @@ use App\Http\Controllers\AdoptionController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\MemberDashboardController;
+
 
 
 /*
@@ -54,9 +56,12 @@ Route::post('/parent/class',[ParentController::class,'class'])->name('parent.cla
 
 //Route::post('/adoption/form',[AdoptionController::class,'adoptform'])->name('adopt.form');
 
-Route::get('/frontend/donate',[DonateController::class,'donateview'])->name('donate.view'); //frontend
+Route::get('/frontend/donate',[DonateController::class,'donateview'])->name('donate.view'); 
 Route::post('/frontend/donate/now',[DonateController::class,'donatenow'])->name('donate.now');
 
+
+
+Route::get('/dashboard',[MemberDashboardController::class,'memberdashboard'])->name('member.dashboard');
 
 
 
@@ -83,18 +88,18 @@ Route::post('/do-login',[UserController::class,'doLogin'])->name('do.login');
 Route::get('/logout',[UserController::class,'logout'])->name('logout');
  
   
-Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
+Route::group(['middleware'=>'auth'],function(){
    Route::group(['middleware'=>'admin'],function(){
    
    
-      Route::get('/',[HomeController::class,'Dashboard'])->name('dashboard');
+      Route::get('/dashboard',[HomeController::class,'Dashboard'])->name('dashboard');
 
       Route::get('/user/list',[UserController::class,'userlist'])->name('user.list');
       Route::get('/user/active/{user_id}',[UserController::class,'active'])->name('user.active');
       Route::get('/user/reject/{user_id}',[UserController::class,'reject'])->name('user.reject');
    
 
-      Route::get('/admin',[AdminController::class,'panel'])->name('admin');
+      
 
       Route::get('/orphans',[OrphanController::class,'center'])->name('orphans');
       Route::get('/orphan/create',[OrphanController::class,'createForm'])->name('orphan.create');
@@ -157,6 +162,8 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
       Route::get('/donation/confirmation',[DonationController::class,'confirmation'])->name('donation.confirmation');
       Route::post('/donation/payment',[DonationController::class,'paymentconfirmation'])->name('donation.payment');
 
+      
+
       Route::get('/donors',[DonorController::class,'information'])->name('donors');
       
 
@@ -177,6 +184,9 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
    
 
    }); 
+  
+   
 });
+
   
   

@@ -2,13 +2,14 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-
+                
                 <a class="nav-link" href="{{route('dashboard')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
 
-
+                
+                @if(auth()->user()->role=='admin')
                 <a class="nav-link collapsed" href="{{route('user.list')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     User list
@@ -52,6 +53,12 @@
                 <a class="nav-link collapsed" href="{{route('donation.report')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Reports
+
+                </a>
+                @endif
+                <a class="nav-link" href="{{route('home')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Homepage
                 </a>
             </div>
         </div>

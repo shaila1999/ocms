@@ -44,6 +44,6 @@
   </tbody>
 </table>
 
-
+{{$donate->links()}}
 
 @endsection

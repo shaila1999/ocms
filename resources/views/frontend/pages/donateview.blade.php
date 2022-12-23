@@ -35,7 +35,7 @@
 
                 
                 <div class="form-group pt-3">                    
-                    <div class="card p-3 mt-4 bg-primary text-white ">
+                    <div class="card p-3 mt-4 bg-success text-white ">
                         <h4 class="mb-4 text-white">Our Marcent Numbers:</h4>
                         <p><strong>Bkash:</strong> 01978987373</p>
                         <p><strong>Nagad:</strong> 01978987372</p>
@@ -55,7 +55,7 @@
 
                 <div class="form-group my-3">
                     <label for="name"class="font-weight-bold">Enter Payment Phone Number</label>
-                    <input required name="payment_phone" type="number" class="form-control" id="name"
+                    <input required name="payment_phone" type="text" class="form-control" id="name"
                         placeholder="Enter payment phone number">
                 </div>
 
@@ -95,9 +95,14 @@
 
                 <div class="form-group my-3">
                     <label for=""class="font-weight-bold">Enter Donor Phone_Number</label>
-                    <input required name="phone" type="number" class="form-control" placeholder="Enter donor Phone ">
+                    <input required name="phone" type="text" class="form-control" placeholder="Enter donor Phone ">
 
                 </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"class="font-weight-bold">Password</label>
+                     <input required name="donor_password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                 </div>
 
              
                 <div class="form-group my-3">

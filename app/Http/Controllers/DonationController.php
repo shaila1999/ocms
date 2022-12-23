@@ -21,6 +21,21 @@ class DonationController extends Controller
 
 
     public function donationdonate(Request $request){
+
+        $request->validate([
+           
+           
+            
+            'amount'=>'required',
+            'donation_type'=>'required|not_in:none',
+            'payment'=>'required|not_in:none',
+            'phone'=>'required|numeric|digits:11'
+            
+            
+            
+        ]);
+
+
         
         //dd($request->all());
         
@@ -45,6 +60,9 @@ class DonationController extends Controller
     }
 
     public function paymentconfirmation(Request $request){
+        $request->validate([
+        'transaction_id'=>'required', 
+        ]);
 
         //dd($request->all());
     
@@ -54,7 +72,7 @@ class DonationController extends Controller
             //database column name=> input field name
             'transaction_id'=>$request->transaction_id,
         ]);
-         return redirect()->route('donations')->with('message','donation successfully');
+         return redirect()->route('dashboard')->with('message','donation successfully');
             
     }
     
@@ -89,5 +107,7 @@ class DonationController extends Controller
 
 
     }
+
+    
        
 }

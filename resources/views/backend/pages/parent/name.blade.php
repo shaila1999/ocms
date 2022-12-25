@@ -16,10 +16,10 @@
 
 
                 @csrf
-
+                    
                 <div class="form-group my-3">
                     <label for="name"class="font-weight-bold">Enter Phone Number</label>
-                    <input required name="phone" type="number" class="form-control" id="name" placeholder="Enter phone">
+                    <input required name="phone" type="text" class="form-control" id="name" placeholder="Enter phone">
                 </div>
 
                 <div class="form-group my-3">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
 
-                <input value="{{Session::get('id')}}" type="hidden" name="user_id">
+                <input value="{{Session::get('user_id')}}" type="hidden" name="user_id">
 
 
                 <div class="form-group my-3">

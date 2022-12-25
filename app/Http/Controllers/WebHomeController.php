@@ -8,9 +8,10 @@ use App\Models\Orphan;
 use App\Models\Parents;
 use App\Models\Staff;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
 
 class WebHomeController extends Controller
 {
@@ -30,8 +31,16 @@ class WebHomeController extends Controller
             'donor_password'=>'required'
         ]);
 
-       
-       
+        $duplicateMail=DB::table('users')
+                        ->where('email',$request->donor_email)
+                        ->get();
+                        
+        if(isset($duplicateMail[0]->id)){
+            notify()->error($duplicateMail[0]->email.' email Already Used,please login');
+            return redirect()->back();            
+        }
+        
+      
         $user=User::create([
             'name'=>$request->donor_name,
             'email'=>$request->donor_email,
@@ -43,10 +52,12 @@ class WebHomeController extends Controller
          ]);
          
         if($user->role=='donor'){
+            Session::put('user_id',$user->id);
             return redirect()->route('donor.create')->with('id',$user->id);
         }
 
         if($user->role=='parent'){
+            Session::put('user_id',$user->id);
             return redirect()->route('parent.create')->with('id',$user->id);
         }
          //notify()->success('Registration success');
@@ -124,24 +135,7 @@ class WebHomeController extends Controller
     
 
 
-    public function parentlist(Request $request){
-        $request->validate([
-            'parent_name'=>'required',
-            'phone_number'=>'required'
-        ]);
-
-       
-         Parents::create([
-            //database column name=> input field name
-            'name'=>$request->parent_name,
-            'address'=>$request->parent_address,
-            'phone_number'=>$request->phone_number,
-            'email'=>$request->parent_email
-            ]);
-            notify()->success('create successfully');
-            return redirect()->back();
-        
-    }
+    
 
     /*public function orphanview($view_id)
     {

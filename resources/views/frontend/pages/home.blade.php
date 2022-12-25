@@ -15,8 +15,10 @@
                 </h1>
                 @if(isset(auth()->user()->role) && auth()->user()->role=='donor')
                 <a href="{{route('donation.form')}}" class="head-btn btn text-uppercase">Donate Now</a>
-                @else
+                @endif
+                @if(!isset(auth()->user()->role))
                 <a href="{{route('donate.view')}}" class="head-btn btn text-uppercase">Donate Now</a>
+                <a href="{{route('orphan.list')}}" class="head-btn btn text-uppercase">Adopt Now</a>
                 @endif
                 @if(isset(auth()->user()->role) && auth()->user()->role=='parent')
                 <a href="{{route('orphan.list')}}" class="head-btn btn text-uppercase">Adopt Now</a>
@@ -120,7 +122,7 @@
                 <img class="img-fluid" src="{{url('/frontend/img/b2.png')}}" alt="">
             </div>
             <div class="col-lg-6 col-md-12 about-right">
-                <h1 style="color: #12ef89;">A very Lovely Welcome <br>
+                <h1 class="h3"style="color: #12ef89;">A Very Lovely Welcome <br>
                     to our Company</h1>
                 <p class="text-white">
                     At My Home, orphans are provided shelter, food,clothing, education, health, sports and all other facilities of life with love, affection and care.
@@ -148,9 +150,9 @@
             <div class="col-lg-3 col-md-3 vol-wrap">
                 <div class="single-vol">
                     <div class="content">
-                        <a href="#" target="_blank">
+                        <a target="_blank">
                             <div class="content-overlay"></div>
-                            <img class="content-image img-fluid d-block mx-auto" src="{{url('/uploads/',$data->image)}}"
+                            <img class="content-image img-fluid d-block mx-auto" style="height: 300px;" src="{{url('/uploads/',$data->image)}}"
                                 alt="">
                             <div class="content-details fadeIn-bottom">
                                 <h4>{{($data->name)}}</h4>

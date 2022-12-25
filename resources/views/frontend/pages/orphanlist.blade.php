@@ -8,9 +8,9 @@
    
     @foreach($orphan as $data)
     <div class="col-md-4 col-lg-3 col-sm-6 mb-4">
-      <div class="card">
+      <div class="card pt-4 ">
         <div class="image mx-auto" style="height: 150px; width: 120px; overflow: hidden;">
-          <img src="{{url('/uploads/',$data->image)}}" class="img-responsive" alt="...">
+          <img src="{{url('/uploads/',$data->image)}}" class="img-responsive" style="height: 150px; width: 120px;" alt="...">
         </div>
         <div class="card-body text-center">            
             <p class="card-text" style="font-size: 20px; color: #342a6a;  font-weight: 800;">{{$data->name}}</p>

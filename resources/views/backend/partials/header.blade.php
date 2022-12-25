@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html">@if(auth()->user()->role=='admin')Admin Panel
+    <a class="navbar-brand ps-3">@if(auth()->user()->role=='admin')Admin Panel
         @else
         User Panel 
         @endif

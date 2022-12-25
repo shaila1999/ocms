@@ -19,7 +19,7 @@
                 @csrf
                 <div class="form-group my-3">
                     <label for="" class="font-weight-bold">Enter Donor Phone_Number</label>
-                    <input required name="phone" type="number" class="form-control" placeholder="Enter donor Phone ">
+                    <input value="{{old('phone')}}" required name="phone" type="number" class="form-control" placeholder="Enter donor Phone ">
 
                 </div>
 
@@ -27,15 +27,15 @@
                     <label for="" class="font-weight-bold">Gender</label>
                     <select name="gender" class="form-select" aria-label="Default select example">
                         <option selected value="none">Open this select menu</option>
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                        <option value="others">others</option>
+                        <option value="female" {{old('gender')=='female'?'selected':''}} >Female</option>
+                        <option value="male" {{old('gender')=='male'?'selected':''}}> Male</option>
+                        <option value="others" {{old('gender')=='others'?'selected':''}} >others</option>
                     </select>
 
                 </div>
 
 
-                <input value="{{Session::get('id')}}" type="hidden" name="user_id">
+                <input value="{{Session::get('user_id')}}" type="hidden" name="user_id">
 
 
                 <div class="form-group my-3">

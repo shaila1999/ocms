@@ -16,7 +16,7 @@
 
     <div class="form-group my-3">
         <label for="name">Enter Amount </label>
-        <input required name="amount" type="number" class="form-control" id="name" placeholder="Enter amount">
+        <input value="{{old('amount')}}" required name="amount" type="text" class="form-control" id="name" placeholder="Enter amount">
     </div>
 
 
@@ -25,11 +25,11 @@
         <label for="">Donation Type</label>
         <select name="donation_type" class="form-select" aria-label="Default select example">
             <option selected value="none">Open this select menu</option>
-            <option value="food">Food</option>
-            <option value="clothes">Clothes</option>
-            <option value="medicine">Medicine</option>
-            <option value="education">Education</option>
-            <option value="others">others</option>
+            <option value="food" {{old('donation_type')=='food'?'selected':''}}> Food</option>
+            <option value="clothes" {{old('donation_type')=='clothes'?'selected':''}}> Clothes</option>
+            <option value="medicine" {{old('donation_type')=='medicine'?'selected':''}}> Medicine</option>
+            <option value="education" {{old('donation_type')=='education'?'selected':''}}> Education</option>
+            <option value="others" {{old('donation_type')=='others'?'selected':''}}> others</option>
         </select>
     </div>
 
@@ -45,9 +45,9 @@
         <label for="">Payment Option</label>
         <select name="payment" class="form-select" aria-label="Default select example">
             <option selected value="none">Open this select menu</option>
-            <option value="bkash">Bkash</option>
-            <option value="nagad">Nagad</option>
-            <option value="rocket">Rocket</option>
+            <option value="bkash" {{old('payment')=='bkash'?'selected':''}}> Bkash</option>
+            <option value="nagad" {{old('payment')=='nagad'?'selected':''}}> Nagad</option>
+            <option value="rocket" {{old('payment')=='rocket'?'selected':''}}> Rocket</option>
         </select>
     </div>
 
@@ -57,7 +57,7 @@
 
     <div class="form-group my-3">
         <label for="name">Enter Payment Phone Number</label>
-        <input required name="phone" type="text" class="form-control" id="name"
+        <input value="{{old('phone')}}" required name="phone" type="text" class="form-control" id="name"
             placeholder="Enter payment phone number">
     </div>
 

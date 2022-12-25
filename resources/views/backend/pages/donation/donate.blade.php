@@ -20,7 +20,7 @@
       <th scope="col"> Phone Number</th>
       <th scope="col"> Payment Method</th>
       <th scope="col"> Transaction Id</th>
-      <th scope="col"> Action</th>
+     
       
       
 
@@ -37,7 +37,7 @@
       <td>{{($data->payment_method)}}</td>
       <td>{{($data->transaction_id)}}</td>
       <td>         
-      <a href="{{route('admin.donation.view',$data->id)}}" class="btn btn-success">View</a>
+      
       </td>
       
       

@@ -22,7 +22,7 @@
     
     <div class="form-group my-3">
         <label for="name">Enter Amount </label>
-        <input required name="amount" type="number" class="form-control" id="name" placeholder="Enter amount">
+        <input  value="{{old('amount')}}" required name="amount" type="number" class="form-control" id="name" placeholder="Enter amount">
     </div>
 
 
@@ -31,16 +31,16 @@
         <label for="">Expense Type</label>
         <select name="expense_type" class="form-select" aria-label="Default select example">
             <option selected value="none" >Open this select menu</option>
-            <option value="orphans">Orphans</option>
-            <option value="staffs">Staffs</option>
-            <option value="others">Others</option>
+            <option value="orphans" {{old('expense_type')=='orphans'?'selected':''}} >Orphans</option>
+            <option value="staffs" {{old('expense_type')=='staffs'?'selected':''}}> Staffs</option>
+            <option value="others" {{old('expense_type')=='others'?'selected':''}}> Others</option>
         </select>
     </div>
     <input value="{{$currentBalance}}" type="hidden" name="current_balance">
 
     <div class="form-group my-3">
         <label for="">Purpose</label>
-        <input required name="description" type="text" class="form-control" id="name" placeholder="Enter purpose">
+        <input value="{{old('description')}}" required name="description" type="text" class="form-control" id="name" placeholder="Enter purpose">
     </div>
 
 

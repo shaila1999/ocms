@@ -24,12 +24,6 @@
         <input required name="staff_name" type="text" class="form-control" id="name" placeholder="Enter staff Name">
     </div>
 
-    <div class="form-group my-3">
-        <label for="">Enter staff Id</label>
-        <input name="id" type="text" class="form-control" placeholder="Enter staff id ">
-
-    </div>
-
 
     <div class="form-group my-3">
         <label for="">Enter staff Address</label>
@@ -45,7 +39,7 @@
 
     <div class="form-group my-3">
         <label for="">Enter staff Phone_Number</label>
-        <input required name="staff_phone" type="number" class="form-control" placeholder="Enter staff Phone ">
+        <input required name="staff_phone" type="text" class="form-control" placeholder="Enter staff Phone ">
 
     </div>
 
